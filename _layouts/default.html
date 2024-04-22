@@ -4,18 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-    <!-- {%- include navigation.html -%} -->
+    {%- include navigation.html -%}
 </head>
 
 <body>
-    <section>
+    <div id="content">
         {{ content }}
-    </section>
-    <footer>
-        &copy; to me
-    </footer>
+    </div>
+    {%- include footer.html -%}
 </body>
 
 </html>
