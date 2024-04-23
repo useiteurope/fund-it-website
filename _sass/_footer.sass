@@ -1,5 +1,5 @@
+@import "breakpoints"
 footer
-
     #footer-call-to-action
         background-color: $primary-color
         color: $on-primary-color
@@ -41,6 +41,10 @@ footer
                     align-items: center
                     gap: 5pt
                     font: 500 $font-size-xxsmall $font-other
+
+            @media screen and (max-width: $breakpoint-small)
+                #footer-navigation
+                    display: none
 
             #footer-navigation
                 .page-link
