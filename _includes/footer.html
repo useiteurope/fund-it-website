@@ -11,34 +11,36 @@
         <div class="content">
             <div id="footer-partners">
                 <div class="footer-partner">
-                    <img src="assets/img/logo_fundit.png" alt="Logo FundIt" />
+                    <img src="/assets/img/logo_fundit.png" alt="Logo FundIt" />
                 </div>
 
                 <div class="footer-partner">
-                    <img src="assets/img/europe_flag.svg" alt="Europe flag" />
+                    <img src="/assets/img/europe_flag.svg" alt="Europe flag" />
                     <span>Co-funded by<br />the European Union</span>
                 </div>
             </div>
             <nav id="footer-navigation">
                 <h4>Pages</h4>
                 <ul>
-                    <!-- TODO : iterate over real pages -->
-                    <li>Our tookit</li>
-                    <li>Case studies</li>
-                    <li>Our research</li>
-                    <li>What is Fund-It</li>
+                    {%- for site_page in site.pages -%}
+                    {%- if site_page.title -%}
+                    <li><a class="page-link {% if page.path == site_page.path %}current{% endif %}"
+                            href="{% if page.path == site_page.path %}#{% else %}{{ site_page.url | relative_url }}{% endif %}">{{
+                            site_page.title | escape }}</a></li>
+                    {%- endif -%}
+                    {%- endfor -%}
                 </ul>
             </nav>
             <div id="footer-social-networks">
                 <h4>Follow us</h4>
                 <ul>
                     <!-- TODO : Iterate over settings to get social URLs -->
-                    <li><a href="" target="_blank"><img src="assets/img/facebook_outlined.svg"
+                    <li><a href="" target="_blank"><img src="/assets/img/facebook_outlined.svg"
                                 alt="Facebook logo" /></a>
                     </li>
-                    <li><a href="" target="_blank"><img src="assets/img/youtube_outlined.svg" alt="Youtube logo" /></a>
+                    <li><a href="" target="_blank"><img src="/assets/img/youtube_outlined.svg" alt="Youtube logo" /></a>
                     </li>
-                    <li><a href="" target="_blank"><img src="assets/img/instagram_outlined.svg"
+                    <li><a href="" target="_blank"><img src="/assets/img/instagram_outlined.svg"
                                 alt="Instagram logo" /></a>
                     </li>
                 </ul>

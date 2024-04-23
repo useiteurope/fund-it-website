@@ -16,6 +16,7 @@ p
     font: 500 $font-size-regular $font-inter
 
 footer
+
     #footer-call-to-action
         background-color: $primary-color
         color: $on-primary-color
@@ -59,6 +60,13 @@ footer
                     font: 500 $font-size-xxsmall $font-other
 
             #footer-navigation
+                .page-link
+                    text-decoration: none
+                    color: $on-primary-color
+
+                .page-link.current
+                    font-weight: 700
+
                 ul
                     padding: 0
                     gap: 5pt
