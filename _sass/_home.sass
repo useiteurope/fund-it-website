@@ -1,0 +1,44 @@
+#part-2
+    background-color: $primary-color
+    color: $on-primary-color
+
+    h2
+        font: 600 $font-size-big $font-clash
+
+    .items
+        overflow-x: scroll
+        overflow-y: hidden
+        display: flex
+        gap: 10pt
+        align-items: center
+        justify-content: center
+        flex-direction: column
+
+    @media screen and (min-width: 500pt)
+        .items
+            flex-direction: row
+
+    @media screen and (max-width: 760pt)
+        .items
+            justify-content: normal
+
+    .item
+        background-color: $card-color
+        width: 197pt
+        min-width: 197pt
+
+        img
+            object-fit: cover
+            width: 100%
+            height: 56%
+
+        h3
+            font: 600 $font-size-big $font-clash
+            text-align: center
+            color: $text-color
+
+        p
+            font: 400 $font-size-small $font-inter
+            color: $text-color-light
+            padding: 0pt 7pt 20pt 7pt
+            text-align: justify
