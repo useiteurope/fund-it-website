@@ -1,0 +1,24 @@
+header
+    display: flex
+    flex-flow: row
+    padding: 14pt 0 14pt 0
+
+    .logo
+        flex-grow: 1
+        img
+            width: 100pt
+
+    nav
+        ul
+            display: flex
+            flex-flow: row
+            font: 400 $font-size-xsmall $font-inter
+            gap: 25pt
+            align-items: center
+            list-style: none
+            .page-link
+                text-decoration: none
+                color: black
+
+            .page-link.current
+                font-weight: 700

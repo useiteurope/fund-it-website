@@ -1,0 +1,68 @@
+footer
+
+    #footer-call-to-action
+        background-color: $primary-color
+        color: $on-primary-color
+        padding: 25pt 0 40pt 0
+
+        p
+            font: 400 $font-size-regular $font-inter
+
+        h4
+            font: 400 $font-size-big $font-clash
+            strong
+                font: 700 $font-size-big $font-clash
+
+    #footer-legals-and-pages
+        background-color: $background-dark-color
+        color: $on-primary-color
+
+        .content
+            display: flex
+            flex-flow: row
+            gap: 40pt
+            font: 400 $font-size-xxsmall $font-other
+            padding: 25pt 0 25pt 0
+
+            h4
+                font: 700 $font-size-small $font-other
+
+            #footer-partners
+                flex-grow: 1
+                display: flex
+                flex-flow: column
+                justify-content: center
+                gap: 24pt
+
+                .footer-partner
+                    display: flex
+                    flex-flow: row
+                    justify-content: left
+                    align-items: center
+                    gap: 5pt
+                    font: 500 $font-size-xxsmall $font-other
+
+            #footer-navigation
+                .page-link
+                    text-decoration: none
+                    color: $on-primary-color
+
+                .page-link.current
+                    font-weight: 700
+
+                ul
+                    padding: 0
+                    gap: 5pt
+                    display: flex
+                    flex-flow: column
+                    li
+                        list-style: none
+
+            #footer-social-networks
+                ul
+                    padding: 0
+                    display: flex
+                    flex-flow: row
+                    gap: 10pt
+                    li
+                        list-style: none

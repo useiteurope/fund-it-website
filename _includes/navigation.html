@@ -1,5 +1,18 @@
-<header>
-    <img src="/assets/img/logo_fundit.png" alt="Logo FundIt" />
+<header class="content">
+    <div class="logo">
+        <a href="/"><img src="/assets/img/logo_fundit.png" alt="Logo FundIt" /></a>
+    </div>
     <nav class="site-nav">
+        <ul>
+            {%- for site_page in site.pages -%}
+            {%- if site_page.url != "/" -%}
+            {%- if site_page.title -%}
+            <li><a class="page-link {% if page.path == site_page.path %}current{% endif %}"
+                    href="{% if page.path == site_page.path %}#{% else %}{{ site_page.url | relative_url }}{% endif %}">{{
+                    site_page.title | escape }}</a></li>
+            {%- endif -%}
+            {%- endif -%}
+            {%- endfor -%}
+        </ul>
     </nav>
 </header>
