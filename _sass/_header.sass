@@ -9,21 +9,43 @@ header
         img
             width: 100pt
 
-    nav
-        ul
-            display: flex
-            flex-flow: row
-            font: 400 $font-size-xsmall $font-inter
-            gap: 25pt
-            align-items: center
-            list-style: none
-            .page-link
-                text-decoration: none
-                color: black
+@media screen and (max-width: $breakpoint-small)
+    .site-nav
+        position: absolute
+        top: 26pt
+        right: 0
+        text-align: right
 
-            .page-link.current
-                font-weight: 700
+        input:checked
+            ~
+                .trigger
+                    display: flex
+                    flex-flow: column
+                    justify-content: right
+                    gap: 5pt
+        input
+            ~
+                .trigger
+                    display: none
 
-    @media screen and (max-width: $breakpoint-small)
-        nav
+.site-nav
+    .trigger
+        display: flex
+        flex-flow: row
+        font: 400 $font-size-xsmall $font-inter
+        gap: 25pt
+        list-style: none
+        text-align: right
+        .page-link
+            text-decoration: none
+            color: black
+
+        .page-link.current
+            font-weight: 700
+
+    .nav-trigger
+        display: none
+
+    @media screen and (min-width: $breakpoint-small)
+        label[for="nav-trigger"]
             display: none
