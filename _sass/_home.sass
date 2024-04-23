@@ -24,11 +24,11 @@ section
         justify-content: center
         flex-direction: column
 
-    @media screen and (min-width: 500pt)
+    @media screen and (min-width: $breakpoint-small)
         .items
             flex-direction: row
 
-    @media screen and (max-width: 760pt)
+    @media screen and (max-width: $breakpoint-medium)
         .items
             justify-content: normal
 
