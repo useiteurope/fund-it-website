@@ -10,14 +10,14 @@
     <div id="footer-legals-and-pages">
         <div class="content">
             <div id="footer-partners">
+                {% for partner in site.data.partners %}
                 <div class="footer-partner">
-                    <img src="/assets/img/logo_fundit.png" alt="Logo FundIt" />
+                    <img src="{{ partner.image.url }}" alt="{{ partner.image.description }}" />
+                    {% if partner.description %}
+                    <span>{{ partner.description }}</span>
+                    {% endif %}
                 </div>
-
-                <div class="footer-partner">
-                    <img src="/assets/img/europe_flag.svg" alt="Europe flag" />
-                    <span>Co-funded by<br />the European Union</span>
-                </div>
+                {% endfor %}
             </div>
             <nav id="footer-navigation">
                 <h4>Pages</h4>

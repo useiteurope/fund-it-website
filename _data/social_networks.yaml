@@ -1,0 +1,12 @@
+- image:
+    url: /assets/img/facebook_outlined.svg
+    description: Facebook logo
+  url: 
+- image:
+    url: /assets/img/youtube_outlined.svg
+    description: Youtube logo
+  url: 
+- image:
+    url: /assets/img/instagram_outlined.svg
+    description: Instragram logo
+  url: 

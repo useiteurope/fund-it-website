@@ -1,0 +1,7 @@
+- image:
+    url: /assets/img/logo_fundit.png
+    description: Logo FundIt
+- description: Co-funded by<br />the European Union
+  image:
+    url: /assets/img/europe_flag.svg
+    description: Europe flag
