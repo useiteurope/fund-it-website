@@ -1,9 +1,8 @@
 <footer>
     <div id="footer-call-to-action">
         <div class="content">
-            <h4>Straight to the <strong>tools</strong></h4>
-            <p>You know what you need ? No time to waste...<br />
-                Access directly our toolkit right here !</p>
+            <h4>{{ site.data.footer.title }}</h4>
+            <p>{{ site.data.footer.body }}</p>
             <input type="button" value="Enjoy the kit !">
         </div>
     </div>
@@ -36,15 +35,11 @@
             <div id="footer-social-networks">
                 <h4>Follow us</h4>
                 <ul>
-                    <!-- TODO : Iterate over settings to get social URLs -->
-                    <li><a href="" target="_blank"><img src="/assets/img/facebook_outlined.svg"
-                                alt="Facebook logo" /></a>
+                    {% for social_network in site.data.social_networks %}
+                    <li><a href="{{social_network.url}}" target="_blank"><img src="{{social_network.image.url}}"
+                                alt="{{ social_network.image.description }}" /></a>
                     </li>
-                    <li><a href="" target="_blank"><img src="/assets/img/youtube_outlined.svg" alt="Youtube logo" /></a>
-                    </li>
-                    <li><a href="" target="_blank"><img src="/assets/img/instagram_outlined.svg"
-                                alt="Instagram logo" /></a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
