@@ -16,26 +16,46 @@ header
         right: 0
         text-align: right
 
+        .trigger
+            background-color: $card-color
+            border: 1pt solid $card-border-color
+            border-radius: 8pt
+            font: 400 $font-size-medium $font-inter
+
+        label[for="nav-trigger"]
+            padding: 8pt
+
         input:checked
             ~
                 .trigger
                     display: flex
                     flex-flow: column
                     justify-content: right
-                    gap: 5pt
+                    gap: 0
         input
             ~
                 .trigger
                     display: none
 
+@media screen and (min-width: $breakpoint-small)
+    .site-nav
+        label[for="nav-trigger"]
+            display: none
+
+        .trigger
+            background-color: transparent
+            font: 400 $font-size-small $font-inter
+
 .site-nav
+    z-index: 2
     .trigger
+        margin: auto
         display: flex
         flex-flow: row
-        font: 400 $font-size-xsmall $font-inter
-        gap: 25pt
+        gap: 8pt
         list-style: none
         text-align: right
+
         .page-link
             text-decoration: none
             color: black
@@ -45,7 +65,3 @@ header
 
     .nav-trigger
         display: none
-
-    @media screen and (min-width: $breakpoint-small)
-        label[for="nav-trigger"]
-            display: none

@@ -18,7 +18,7 @@
             {%- for site_page in site.pages -%}
             {%- if site_page.url != "/" -%}
             {%- if site_page.title -%}
-            <li><a class="page-link {% if page.path == site_page.path %}current{% endif %}"
+            <li><a class="text-button page-link {% if page.path == site_page.path %}current{% endif %}"
                     href="{% if page.path == site_page.path %}#{% else %}{{ site_page.url | relative_url }}{% endif %}">{{
                     site_page.title | escape }}</a></li>
             {%- endif -%}
