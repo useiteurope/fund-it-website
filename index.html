@@ -29,13 +29,14 @@ layout: default
   <div class="content">
 
     <h2>{{ site.data.home.part3.title }}</h2>
-
-    <div class="testimony">
-      <h3>{{site.data.home.part3.testimony.title}}</h3>
-      <p>{{ site.data.home.part3.testimony.body }}</p>
-      <div class="caption">{{ site.data.home.part3.testimony.footer }}</div>
+    <div id="part-3-content">
+      <img src="{{ site.data.home.part3.image.url}}" alt="{{ site.data.home.part3.image.description }}" />
+      <div class="testimony">
+        <h3>{{site.data.home.part3.testimony.title}}</h3>
+        <p>{{ site.data.home.part3.testimony.body }}</p>
+        <div class="caption">{{ site.data.home.part3.testimony.footer }}</div>
+        <button>Discover more !</button>
+      </div>
     </div>
-
-    <button>Discover more !</button>
   </div>
 </section>

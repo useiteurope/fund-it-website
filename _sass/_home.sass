@@ -59,12 +59,30 @@ section
 #part-3
     h2
         font: 600 $font-size-big $font-clash
-    .testimony
-        color: $text-color-light
-        margin: 0 0 20pt 0
-        h3
-            font: 900 $font-size-regular $font-inter
-        p
-            font: 900 $font-size-xsmall $font-inter
-        .caption
-            font: 400 $font-size-xsmall $font-inter
+    .content
+        max-width: 550pt
+
+    #part-3-content
+        display: flex
+        flex-flow: row
+        gap: 10%
+
+        img
+            width: 40%
+            max-width: 200pt
+            aspect-ratio: 1/1
+            object-fit: cover
+            border-radius: 12pt
+            flex-shrink: 0
+            margin-bottom: auto
+
+        .testimony
+            color: $text-color-light
+            h3
+                font: 900 $font-size-regular $font-inter
+                margin-top: 0
+            p
+                font: 900 $font-size-xsmall $font-inter
+            .caption
+                margin: 0 0 20pt 0
+                font: 400 $font-size-xsmall $font-inter
