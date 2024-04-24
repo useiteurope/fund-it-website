@@ -1,0 +1,31 @@
+title: <strong>Become a funding</strong> expert
+subtitle: Get all you need to create your own<br />USE-IT map or more !
+
+part2:
+  title: How will FUND-IT make you an expert in funding ?
+  items:
+    - title: Hard skills
+      image:
+        url: /assets/img/how_become_expert/hard_skills.jpg
+        description: Hard skills illustration
+      body: We all have quite some enthusiasm at first for projects before having hard skills to achieve our goals ! Don’t worry we are here to share our tips on planning, budgeting and negociating !
+    - title: Knowledge
+      image:
+        url: /assets/img/how_become_expert/knowledge.jpg
+        description: Knowledge illustration
+      body: Where is the money? How to reach it? We will help you answering those questions by opening your mind about potential sponsors, structure of institutions and vision of money people.
+    - title: Inspiration
+      image:
+        url: /assets/img/how_become_expert/inspiration.jpg
+        description: Inspiration illustration
+      body: "What are the best practices? Get inspired with our map of USE-IT project initiatives and experience the funding journey through stories of study cases of FUND IT project: pilot cities !"
+
+part3:
+  title: What is FUND-IT ?
+  image:
+    url: /assets/img/how_become_expert/hard_skills.jpg
+    description: Hard skills illustration
+  testimony:
+    title: Did you hear that? They have shut down the main reactor. We'll be destroyed for sure.
+    body: This is madness! We're doomed! There'll be no escape for the Princess this time. What's that? Artoo! Artoo-Detoo, where are you? At last! Where have you been? They're heading in this direction.
+    footer: During 3 years, a team of 6 USE-IT maps
