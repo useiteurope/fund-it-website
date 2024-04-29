@@ -1,5 +1,14 @@
 @import "breakpoints"
 footer
+    $footer-wave-min-width: 1440px
+    @media screen and (max-width: $footer-wave-min-width)
+        #footer-call-to-action
+            clip-path: url("#footer-call-to-action-clip-path-absolute")
+
+    @media screen and (min-width: $footer-wave-min-width)
+        #footer-call-to-action
+            clip-path: url("#footer-call-to-action-clip-path-relative")
+
     #footer-call-to-action
         background-color: $primary-color
         color: $on-primary-color
