@@ -6,16 +6,24 @@ section
     .content
         padding-top: 10pt
 
-#part-2
-    color: $on-primary-color
-    background-color: $primary-color
-
-    .header
-        position: relative
-        top: -40px
+#part-2-header
+    position: relative
+    height: 90px
+    .header-circle
+        position: absolute
+        bottom: 10px
         circle
             stroke: none
             fill: $text-color
+    .header-wave
+        position: absolute
+        bottom: 0
+        path
+            fill: $primary-color
+
+#part-2
+    color: $on-primary-color
+    background-color: $primary-color
 
     h2
         font: 600 $font-size-big $font-clash
