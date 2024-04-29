@@ -1,0 +1,51 @@
+/** Responsive Width **/
+@mixin width()
+    width: 80%
+    margin: auto
+    position: relative
+
+.width--wide
+    @include width
+    max-width: 1080px
+
+.width--narrow
+    @include width
+    max-width: 550pt
+
+/** Page contents **/
+.page__top-content
+    padding-top: 10pt
+
+.page__bottom-content
+    padding-bottom: 45pt
+
+/** Vertical paddings **/
+.vertical-padding--standard
+    padding-top: 45pt
+    padding-bottom: 45pt
+
+/** Layout two columns **/
+.layout-two-columns
+    display: flex
+    flex-flow: row
+    gap: 10%
+
+    .layout-two-columns__left
+        width: 40%
+        max-width: 200pt
+        aspect-ratio: 1/1
+        object-fit: cover
+        border-radius: 12pt
+        flex-shrink: 0
+        margin-bottom: auto
+
+    .layout-two-columns__right
+        color: $text-color-light
+        h3
+            font: 900 $font-size-regular $font-inter
+            margin-top: 0
+        p
+            font: 900 $font-size-xsmall $font-inter
+        .caption
+            margin: 0 0 20pt 0
+            font: 400 $font-size-xsmall $font-inter

@@ -2,6 +2,15 @@
 title: What is Fund-It
 layout: default
 ---
-<div class="content">
-    <h1>What is Fund-It</h1>
+<div class="content width--narrow page__top-content page__bottom-content">
+    <h1>{{ site.data.home.part3.title }}</h1>
+    <div class="layout-two-columns">
+        <img class="layout-two-columns__left" src="{{ site.data.home.part3.image.url}}"
+            alt="{{ site.data.home.part3.image.description }}" />
+        <div class="layout-two-columns__right">
+            <h3>{{site.data.home.part3.testimony.title}}</h3>
+            <p>{{ site.data.home.part3.testimony.body }}</p>
+            <div class="caption">{{ site.data.home.part3.testimony.footer }}</div>
+        </div>
+    </div>
 </div>

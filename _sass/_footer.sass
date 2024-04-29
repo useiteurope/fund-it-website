@@ -2,14 +2,14 @@
 footer
     $footer-wave-min-width: 1440px
     @media screen and (max-width: $footer-wave-min-width)
-        #footer-call-to-action
-            clip-path: url("#footer-call-to-action-clip-path-absolute")
+        #footer__call-to-action
+            clip-path: url("#footer__call-to-action-clip-path-absolute")
 
     @media screen and (min-width: $footer-wave-min-width)
-        #footer-call-to-action
-            clip-path: url("#footer-call-to-action-clip-path-relative")
+        #footer__call-to-action
+            clip-path: url("#footer__call-to-action-clip-path-relative")
 
-    #footer-call-to-action
+    #footer__call-to-action
         background-color: $primary-color
         color: $on-primary-color
         padding: 25pt 0 40pt 0
@@ -22,11 +22,11 @@ footer
             strong
                 font: 700 $font-size-big $font-clash
 
-    #footer-legals-and-pages
+    #footer__legals-and-pages
         background-color: $background-dark-color
         color: $on-primary-color
 
-        .content
+        .width--wide
             display: flex
             flex-flow: row
             gap: 40pt
@@ -36,14 +36,14 @@ footer
             h4
                 font: 700 $font-size-small $font-other
 
-            #footer-partners
+            #footer__partners
                 flex-grow: 1
                 display: flex
                 flex-flow: column
                 justify-content: center
                 gap: 24pt
 
-                .footer-partner
+                .footer__partner
                     display: flex
                     flex-flow: row
                     justify-content: left
@@ -52,10 +52,10 @@ footer
                     font: 500 $font-size-xxsmall $font-other
 
             @media screen and (max-width: $breakpoint-small)
-                #footer-navigation
+                #footer__navigation
                     display: none
 
-            #footer-navigation
+            #footer__navigation
                 .page-link
                     text-decoration: none
                     color: $on-primary-color
@@ -75,7 +75,7 @@ footer
                     li
                         list-style: none
 
-            #footer-social-networks
+            #footer__social-networks
                 ul
                     padding: 0
                     display: flex
