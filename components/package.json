@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Typescript code compilation & dependencies management",
   "scripts": {
-    "watch": "webpack --config webpack.config.js --watch",
-    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --config webpack.config.dev.js --watch",
+    "build": "webpack --config webpack.config.prod.js",
     "clean": "rm -Rf ../jekyll/assets/js/*"
   },
   "devDependencies": {
