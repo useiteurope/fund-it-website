@@ -8,24 +8,21 @@
 .navigation-link:hover
     background: #eee
 
-.text-link
+@mixin text-link ()
     text-decoration: none
     display: inline-block
-    background-color: $primary-color
-    color: $on-primary-color
     border: 0
     border-radius: 20pt
     text-align: center
     padding: 6pt 12pt
     font: 700 $font-size-regular $font-clash
 
-.text-link-negative
-    text-decoration: none
-    display: inline-block
+.text-link
+    @include text-link
+    background-color: $primary-color
+    color: $on-primary-color
+
+.text-link--negative
+    @include text-link
     background-color: $on-primary-color
     color: $primary-color
-    border: 0
-    border-radius: 20pt
-    text-align: center
-    padding: 6pt 12pt
-    font: 700 $font-size-regular $font-clash

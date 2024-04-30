@@ -2,6 +2,34 @@
 title: Our toolkit
 layout: default
 ---
-<div class="content">
-    <h1>Our toolkit</h1>
+<div class="page__top-content width--wide">
+    <h1>Enjoy the perfect <strong>fundraiser toolkit !</strong></h1>
+    <section>
+        <h2>Ressources for matching with funding opportunities</h2>
+
+        <grid>
+            {%- for resource in site.data.toolkit.ressources -%}
+            <div>
+                <h3>{{ resource.title }}</h3>
+                <img src="{{ resource.image.url }}" alt="{{ resource.image.description }}" />
+                <p>{{ resource.description }}</p>
+                <a href="{{ resource.url }}" class="text-link">Download now !</a>
+            </div>
+            {%- endfor -%}
+        </grid>
+    </section>
+    <section class="page__bottom-content">
+        <h2>Our videos</h2>
+        <grid>
+            {%- for resource in site.data.toolkit.ressources -%}
+            <div>
+                <h3>{{ resource.title }}</h3>
+                <img src="{{ resource.image.url }}" alt="{{ resource.image.description }}" />
+                <p>{{ resource.description }}</p>
+                <a href="{{ resource.url }}" class="text-link">Download now !</a>
+            </div>
+            {%- endfor -%}
+        </grid>
+    </section>
+
 </div>

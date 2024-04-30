@@ -1,0 +1,33 @@
+ressources:
+  - title: USE-IT project editable booklet
+    description: What is USE-IT ? Here is a editable and printable answer to anyone who ask!
+    url: https://google.com
+    image:
+      url: /assets/img/toolkit/use-it.png
+      description: Use-It illustration
+  - title: The perfect funder guidebook
+    description: A complete overview of the funding process and good practices and also examples from the USE-IT community
+    url: https://google.com
+    image:
+      url: /assets/img/toolkit/guidebook.png
+      description: Guidebook illustration
+
+videos:
+  - title: "<strong>“From the otherside”</strong> : Interviews of European officials to understand their vision of projects. "
+    videos:
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+  - title: "<strong>Funding journeys</strong> : Follow community members before and after their meetings with authorities."
+    videos:
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+  - title: "<strong>Tutorials for high boost of sponsors research and negociation skills</strong>"
+    videos:
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
+      - https://www.youtube.com/watch?v=0u4f52w4qgQ
