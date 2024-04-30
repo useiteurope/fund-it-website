@@ -29,9 +29,9 @@ layout: default
         <h2>Our videos</h2>
         {%- for playlist in site.data.toolkit.playlists -%}
         <h3>{{ playlist.title }}</h3>
-        <div>
+        <div class="flex">
             {%- for video_url in playlist.videos -%}
-            <youtube-video embed="{{ video_url }}"></youtube-video>
+            <youtube-video class="flex__item--small" embed="{{ video_url }}"></youtube-video>
             {%- endfor -%}
         </div>
         {%- endfor -%}
