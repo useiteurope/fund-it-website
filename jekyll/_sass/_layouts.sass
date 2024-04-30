@@ -51,13 +51,23 @@
             font: 400 $font-size-xsmall $font-inter
 
 /** Flex **/
-.flex
+@mixin flex()
     display: flex
     flex-wrap: wrap
     justify-content: space-between
     row-gap: 25pt
-    .flex__item
-        width: 250pt
+    column-gap: 25pt
 
-    .flex__item--small
-        width: 175pt
+.flex--space-between
+    @include flex
+    justify-content: space-between
+
+.flex--start
+    @include flex
+    justify-content: start
+
+.flex__item
+    width: 250pt
+
+.flex__item--small
+    width: 200pt

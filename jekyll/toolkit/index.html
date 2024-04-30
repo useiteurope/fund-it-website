@@ -9,7 +9,7 @@ layout: default
     <section>
         <h2>Ressources for matching with funding opportunities</h2>
 
-        <div class="toolkit__resources flex">
+        <div class="toolkit__resources flex--space-between">
             {%- for resource in site.data.toolkit.ressources -%}
             <div class="toolkit__resource flex__item">
                 <h3>{{ resource.title }}</h3>
@@ -29,7 +29,7 @@ layout: default
         <h2>Our videos</h2>
         {%- for playlist in site.data.toolkit.playlists -%}
         <h3>{{ playlist.title }}</h3>
-        <div class="flex">
+        <div class="flex--start">
             {%- for video_url in playlist.videos -%}
             <youtube-video class="flex__item--small" embed="{{ video_url }}"></youtube-video>
             {%- endfor -%}
