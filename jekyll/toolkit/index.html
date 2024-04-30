@@ -4,31 +4,36 @@ layout: default
 ---
 {%- include component-youtube-video.html -%}
 
-<div class="page__top-content width--wide">
+<div class="page__top-content width--wide toolkit">
     <h1>Enjoy the perfect <strong>fundraiser toolkit !</strong></h1>
     <section>
         <h2>Ressources for matching with funding opportunities</h2>
 
-        <grid>
+        <div class="toolkit__resources flex">
             {%- for resource in site.data.toolkit.ressources -%}
-            <div>
+            <div class="toolkit__resource flex__item">
                 <h3>{{ resource.title }}</h3>
-                <img src="{{ resource.image.url }}" alt="{{ resource.image.description }}" />
-                <p>{{ resource.description }}</p>
-                <a href="{{ resource.url }}" class="text-link">Download now !</a>
+                <div class="layout-two-columns">
+                    <img class="layout-two-columns__left" src="{{ resource.image.url }}"
+                        alt="{{ resource.image.description }}" />
+                    <div class="layout-two-columns__right">
+                        <p>{{ resource.description }}</p>
+                        <a href="{{ resource.url }}" class="text-link">Download now !</a>
+                    </div>
+                </div>
             </div>
             {%- endfor -%}
-        </grid>
+        </div>
     </section>
     <section class="page__bottom-content">
         <h2>Our videos</h2>
         {%- for playlist in site.data.toolkit.playlists -%}
         <h3>{{ playlist.title }}</h3>
-        <grid>
+        <div>
             {%- for video_url in playlist.videos -%}
             <youtube-video embed="{{ video_url }}"></youtube-video>
             {%- endfor -%}
-        </grid>
+        </div>
         {%- endfor -%}
     </section>
 
