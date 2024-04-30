@@ -2,6 +2,8 @@
 title: Our toolkit
 layout: default
 ---
+{%- include component-youtube-video.html -%}
+
 <div class="page__top-content width--wide">
     <h1>Enjoy the perfect <strong>fundraiser toolkit !</strong></h1>
     <section>
@@ -20,7 +22,14 @@ layout: default
     </section>
     <section class="page__bottom-content">
         <h2>Our videos</h2>
-        <youtube-playlist playlist="PLZRiqJjIUlDQ4GFMX99JYFkkXSs_F6-I5"></youtube-playlists>
+        {%- for playlist in site.data.toolkit.playlists -%}
+        <h3>{{ playlist.title }}</h3>
+        <grid>
+            {%- for video_url in playlist.videos -%}
+            <youtube-video embed="{{ video_url }}"></youtube-video>
+            {%- endfor -%}
+        </grid>
+        {%- endfor -%}
     </section>
 
 </div>
