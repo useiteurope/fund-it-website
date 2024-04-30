@@ -20,16 +20,7 @@ layout: default
     </section>
     <section class="page__bottom-content">
         <h2>Our videos</h2>
-        <grid>
-            {%- for resource in site.data.toolkit.ressources -%}
-            <div>
-                <h3>{{ resource.title }}</h3>
-                <img src="{{ resource.image.url }}" alt="{{ resource.image.description }}" />
-                <p>{{ resource.description }}</p>
-                <a href="{{ resource.url }}" class="text-link">Download now !</a>
-            </div>
-            {%- endfor -%}
-        </grid>
+        <youtube-playlist playlist="PLZRiqJjIUlDQ4GFMX99JYFkkXSs_F6-I5"></youtube-playlists>
     </section>
 
 </div>

@@ -1,0 +1,19 @@
+{
+  "name": "typescript_libs",
+  "version": "1.0.0",
+  "description": "Typescript code compilation & dependencies management",
+  "scripts": {
+    "watch": "webpack --config webpack.config.js --watch",
+    "build": "webpack --config webpack.config.js",
+    "clean": "rm -Rf ../jekyll/assets/js/*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.4",
+    "webpack": "^5.91.0",
+    "ts-loader": "^9.5.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@types/gapi": "^0.0.47"
+  }
+}

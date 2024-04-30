@@ -23,6 +23,18 @@ email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Become a funding expert.
 
+destination: public
+
+defaults:
+  -
+    scope:
+      path: "assets/js" # an empty string here means all files in the project
+    values:
+      type: text/javascript
+
+webserver_headers:
+  "Access-Control-Allow-Origin": "*"
+  "Server": "CustomServerName"
 # Build settings
 # theme: minima
 # plugins:
@@ -36,14 +48,20 @@ description: >- # this means to ignore newlines until "baseurl:"
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - tsconfig.json
+  - package.json
+  - package-lock.json
+  - Makefile
+  - webpack
+  - README.md
+  # - .sass-cache/
+  # - .jekyll-cache/
+  # - gemfiles/
+  # - Gemfile
+  # - Gemfile.lock
+  # - node_modules/
+  # - vendor/bundle/
+  # - vendor/cache/
+  # - vendor/gems/
+  # - vendor/ruby/
