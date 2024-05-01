@@ -24,11 +24,11 @@ description: >- # this means to ignore newlines until "baseurl:"
   Become a funding expert.
 
 destination: public
+baseurl: "/"
 
 defaults:
-  -
-    scope:
-      path: "assets/js" # an empty string here means all files in the project
+  - scope:
+      path: "assets/js"
     values:
       type: text/javascript
 

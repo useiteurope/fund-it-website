@@ -14,8 +14,8 @@ layout: default
             <div class="toolkit__resource flex__item">
                 <h3>{{ resource.title }}</h3>
                 <div class="layout-two-columns">
-                    <img class="layout-two-columns__left" src="{{ resource.image.url }}"
-                        alt="{{ resource.image.description }}" />
+                    {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
+                    class="layout-two-columns__left picture--square"%}
                     <div class="layout-two-columns__right">
                         <p>{{ resource.description }}</p>
                         <a href="{{ resource.url }}" class="text-link">Download now !</a>

@@ -28,7 +28,7 @@ layout: default
     <div class="items">
       {%- for item in site.data.home.part2.items -%}
       <div class="item">
-        <img src="{{ item.image.url }}" alt="{{ item.image.description }}">
+        {%- picture {{ item.image.url }} --alt '{{ item.image.description }}' -%}
         <h3>{{ item.title }}</h3>
         <p>{{ item.body }}</p>
       </div>
@@ -41,8 +41,8 @@ layout: default
 
     <h2>{{ site.data.home.part3.title }}</h2>
     <div class="layout-two-columns">
-      <img class="layout-two-columns__left" src="{{ site.data.home.part3.image.url}}"
-        alt="{{ site.data.home.part3.image.description }}" />
+      {% picture {{ site.data.home.part3.image.url }} --alt {{ site.data.home.part3.image.description }}
+      --parent class="layout-two-columns__left picture--square" %}
       <div class="layout-two-columns__right">
         <h3>{{site.data.home.part3.testimony.title}}</h3>
         <p>{{ site.data.home.part3.testimony.body }}</p>

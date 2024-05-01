@@ -21,7 +21,7 @@
             <div id="footer__partners">
                 {% for partner in site.data.partners %}
                 <div class="footer__partner">
-                    <img src="{{ partner.image.url }}" alt="{{ partner.image.description }}" />
+                    {% picture {{ partner.image.url }} --alt {{ partner.image.description }} %}
                     {% if partner.description %}
                     <span>{{ partner.description }}</span>
                     {% endif %}
