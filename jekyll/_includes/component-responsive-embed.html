@@ -1,0 +1,146 @@
+<!-- Shows an iframe embed on wide screens. Else, tap opens the iframe in a new tab. -->
+<!-- Defines element markup -->
+<template id="iframe-popup">
+    <style>
+        .youtube {
+            background-color: #000;
+            position: relative;
+            padding-top: 56.25%;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 12pt;
+            overflow: clip;
+        }
+
+        .youtube img {
+            width: 100%;
+            top: -16.82%;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        .youtube .play-button {
+            width: 90px;
+            height: 60px;
+            background-color: #333;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+            z-index: 1;
+            opacity: 0.8;
+            border-radius: 6px;
+        }
+
+        .youtube .play-button:before {
+            content: "";
+            border-style: solid;
+            border-width: 15px 0 15px 26.0px;
+            border-color: transparent transparent transparent #fff;
+        }
+
+        .youtube img,
+        .youtube .play-button {
+            cursor: pointer;
+        }
+
+        dialog {
+            width: 80%;
+            height: auto;
+            max-width: 600pt;
+            aspect-ratio: 5/3;
+            border: none;
+
+        }
+
+        dialog::backdrop {
+            background-color: #000000aa;
+
+        }
+
+        dialog iframe {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .youtube img,
+        .youtube .play-button,
+        .youtube .play-button:before {
+            position: absolute;
+        }
+
+        .youtube .play-button,
+        .youtube .play-button:before {
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    </style>
+    <div class="youtube">
+        <div class="play-button"></div>
+    </div>
+    <dialog>
+        <iframe frameborder="0" allowfullscreen="">
+        </iframe>
+    </dialog>
+</template>
+
+<script>
+    customElements.define(
+        "iframe-popup",
+        class extends HTMLElement {
+            static observedAttributes = ["color", "size"];
+
+            constructor() {
+                super();
+                let template = document.getElementById("youtube-video");
+                let templateContent = template.content;
+
+                const shadowRoot = this.attachShadow({ mode: "open" });
+                shadowRoot.appendChild(templateContent.cloneNode(true));
+                this._internals = this.attachInternals();
+            }
+
+            async connectedCallback() {
+                const embedId = this.getAttribute("embed");
+                const videoElem = this._internals.shadowRoot.querySelector(".youtube");
+                const dialog = this._internals.shadowRoot.querySelector("dialog");
+
+                const source = "https://img.youtube.com/vi/" + embedId + "/sddefault.jpg";
+                const image = new Image();
+
+                image.src = source;
+
+                image.addEventListener("load", function () {
+                    videoElem.appendChild(image);
+                });
+
+                videoElem.addEventListener("click", function () {
+
+                    const youtubeIframe = dialog.querySelector("iframe")
+                    youtubeIframe.setAttribute("src", "https://www.youtube.com/embed/" + embedId + "?rel=0&showinfo=0&autoplay=1");
+                    dialog.showModal();
+                    dialog.addEventListener("click", function (event) {
+                        const rect = dialog.getBoundingClientRect();
+                        const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
+                            && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+                        if (!isInDialog) {
+                            dialog.close();
+                            youtubeIframe.setAttribute("src", "")
+                        }
+                    });
+                });
+
+            }
+
+            disconnectedCallback() {
+                console.log("Custom element removed from page.");
+            }
+
+            adoptedCallback() {
+                console.log("Custom element moved to new page.");
+            }
+        }
+
+    );
+</script>

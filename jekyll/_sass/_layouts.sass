@@ -1,8 +1,12 @@
 /** Responsive Width **/
 @mixin width()
-    width: 80%
     margin: auto
     position: relative
+    padding: 0 80px
+    @media screen and (max-width: $breakpoint-medium)
+        padding: 0 40px
+    @media screen and (max-width: $breakpoint-small)
+        padding: 0 15px
 
 .width--wide
     @include width
@@ -63,8 +67,43 @@
     @include flex
     justify-content: start
 
+@mixin column-item()
+    max-width: 300pt
+    width: 100%
+    flex: 1
+
 .flex__item
-    width: 250pt
+    @include column-item
+    min-width: 250pt
 
 .flex__item--small
-    width: 200pt
+    @include column-item
+    min-width: 200pt
+
+/** Columns **/
+@mixin columns()
+    display: grid
+    // flex-wrap: wrap
+    // justify-content: space-between
+    row-gap: 25pt
+    column-gap: 25pt
+    grid-template-columns: 1fr 1fr 1fr
+    @media screen and (max-width: $breakpoint-medium)
+        grid-template-columns: 1fr 1fr
+    @media screen and (max-width: $breakpoint-small)
+        grid-template-columns: 1fr
+
+.columns--start
+    @include columns
+    justify-content: start
+
+@mixin column-item()
+    width: 100%
+
+.column__item
+    @include column-item
+    min-width: 250pt
+
+.column__item--small
+    @include column-item
+    min-width: 200pt
