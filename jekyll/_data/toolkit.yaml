@@ -15,19 +15,26 @@ ressources:
 playlists:
   - title: "<strong>“From the otherside”</strong> : Interviews of European officials to understand their vision of projects. "
     videos:
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
+      - 4wOQOhdtpU0
+      - cBRIKUNKIw8 # From the otherside #2 : Hana Třeštíková from Prague
+      - jILlr6NMd6Y # From the otherside #3 : Maya Vetri & Lorenzo Giardinetti
   - title: "<strong>Funding journeys</strong> : Follow community members before and after their meetings with authorities."
     videos:
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
-  - title: "<strong>Tutorials for high boost of sponsors research and negociation skills</strong>"
+      - cupJ9UpzsHk # Funding Journey #1 : Adrian in Wroclaw
+      - UkuQUjC_Z5w # Funding Journey #2 : Coen and Doris in Tillburg
+      - lcQYGU1RwIQ # Funding Journey #3 : Sara in Rome
+  - title: "<strong>Keys Against Skepticism</strong>"
     videos:
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
-      - 0u4f52w4qgQ
+      - lMWikHASAeg # Keys Against Skepticism #1 : Environmental impact of paper maps
+      - gGQEeqcreQg # Keys Against Skepticism #2 : The USE-IT fee
+      - q83KVA_DTGY # Keys Against Skepticism #3 : Youth Tourism Benefits
+  - title: "<strong>Examples of continuity</strong>"
+    videos: 
+      - cBRIKUNKIw8 # Examples of continuity #1 - OSLO
+
+  - title: "USE-IT Topic Meeting"
+    videos:
+      - DsCJ64qOjag # USE-IT Topic Meeting : About Crowdfunding
+      - 4wOQOhdtpU0 # European Solidarity Corps Introduction by Mafalda
+      - T9wqb9AgiLo # Tutorial #1 : How to find sponsors?
+      - T9wqb9AgiLo # Tutorial #2 : How to prepare a meeting with sponsors
