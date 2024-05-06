@@ -15,8 +15,7 @@ ressources:
 playlists:
   - title: "<strong>“From the otherside”</strong> : Interviews of European officials to understand their vision of projects. "
     videos:
-      - 4wOQOhdtpU0
-      - cBRIKUNKIw8 # From the otherside #2 : Hana Třeštíková from Prague
+      - TuDOW0EMnDE # From the otherside #2 : Hana Třeštíková from Prague
       - jILlr6NMd6Y # From the otherside #3 : Maya Vetri & Lorenzo Giardinetti
   - title: "<strong>Funding journeys</strong> : Follow community members before and after their meetings with authorities."
     videos:
@@ -31,10 +30,9 @@ playlists:
   - title: "<strong>Examples of continuity</strong>"
     videos: 
       - cBRIKUNKIw8 # Examples of continuity #1 - OSLO
-
-  - title: "USE-IT Topic Meeting"
+  - title: "<strong>Tutorials</strong>"
     videos:
-      - DsCJ64qOjag # USE-IT Topic Meeting : About Crowdfunding
-      - 4wOQOhdtpU0 # European Solidarity Corps Introduction by Mafalda
       - T9wqb9AgiLo # Tutorial #1 : How to find sponsors?
       - T9wqb9AgiLo # Tutorial #2 : How to prepare a meeting with sponsors
+      - DsCJ64qOjag # USE-IT Topic Meeting : About Crowdfunding
+      - 4wOQOhdtpU0 # European Solidarity Corps Introduction by Mafalda
