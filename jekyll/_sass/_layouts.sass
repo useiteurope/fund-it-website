@@ -2,11 +2,14 @@
 @mixin width()
     margin: auto
     position: relative
-    padding: 0 80px
+    padding-left: 80px
+    padding-right: 80px
     @media screen and (max-width: $breakpoint-medium)
-        padding: 0 40px
+        padding-left: 40px
+        padding-right: 40px
     @media screen and (max-width: $breakpoint-small)
-        padding: 0 15px
+        padding-left: 15px
+        padding-right: 15px
 
 .width--wide
     @include width
