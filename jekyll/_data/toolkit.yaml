@@ -2,12 +2,14 @@ ressources:
   - title: USE-IT project editable booklet
     description: What is USE-IT ? Here is a editable and printable answer to anyone who ask!
     url: https://www.canva.com/design/DAFg0BW6hKE/cu3ApUpBkq6F8eKOknfyhQ/view
+    action_title: Edit me !
     image:
       url: /assets/img/toolkit/booklet.png
       description: Use-It illustration
   - title: The perfect funder guidebook
     description: A complete overview of the funding process and good practices and also examples from the USE-IT community
     url: https://ugc.padletcdn.com/uploads/padlet-uploads/2017750718/fd7524834f7bac4b7799e850327add1d/The_Perfect_Funder_Guidebook.pdf?token=LKXnO17WkeLIOeUhfxHc7qhpGbzRL2l_DyTHjH_W2bqsSTCvu6eLqlEvXPSK3PYacEol83W3dEknHNg0FDD9fY2aTFXkDaiYAch5KxExglQDj4-tIrwNiMSqvaLkppY35dady1txWe7i9vMyoIxgBrsCLmKrEd-t6MdzE0eBG_wfJnLzqRIaiVMtaLfS-Kuy2u4eKtGlvvQ5c9qy3JW_e2Lwymi9ZawvoPHgxvIvI329Hz3WCj0LrIeK8v4rQsHyl7xecTDb2NqnptfSrQm1hw==
+    action_title: Download now !
     image:
       url: /assets/img/toolkit/guidebook.png
       description: Guidebook illustration
