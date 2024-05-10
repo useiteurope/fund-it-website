@@ -137,7 +137,6 @@
                 const jsonResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=${embedId}&key=${this.apiKey}`);
                 const response = await jsonResponse.json()
                 const movie = response.items[0];
-                console.log(`Get details for ${embedId} : ${JSON.stringify(movie.snippet)}`)
                 return new VideoMeta(
                     movie.snippet.thumbnails.standard?.url ?? movie.snippet.thumbnails.medium?.url ?? movie.snippet.thumbnails.default?.url,
                     movie.snippet.title,
@@ -152,6 +151,7 @@
                 const image = new Image();
 
                 image.src = videoDetails.thumbnailUrl;
+                image.alt = videoDetails.description;
 
                 image.addEventListener("load", function () {
                     videoElem.appendChild(image);
@@ -165,6 +165,9 @@
             updateTitle(videoDetails) {
                 const titleElem = this._internals.shadowRoot.querySelector(".youtube .title");
                 titleElem.innerHTML = videoDetails.description
+
+                const iframeElem = this._internals.shadowRoot.querySelector("dialog iframe");
+                iframeElem.contentDocument.title = videoDetails.description
             }
 
             hidePlayerDialog(dialog, youtubeIframe) {
