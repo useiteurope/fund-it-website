@@ -1,22 +1,23 @@
 ressources:
   - title: USE-IT project editable booklet
     description: What is USE-IT ? Here is a editable and printable answer to anyone who ask!
-    url: https://www.canva.com/design/DAFg0BW6hKE/cu3ApUpBkq6F8eKOknfyhQ/view
+    url: https://www.canva.com/design/DAFg0BW6hKE/cu3ApUpBkq6F8eKOknfyhQ/edit
     action_title: Edit me !
     image:
       url: /assets/img/toolkit/booklet.png
       description: Use-It illustration
   - title: The perfect funder guidebook
     description: A complete overview of the funding process and good practices and also examples from the USE-IT community
-    url: https://ugc.padletcdn.com/uploads/padlet-uploads/2017750718/fd7524834f7bac4b7799e850327add1d/The_Perfect_Funder_Guidebook.pdf?token=LKXnO17WkeLIOeUhfxHc7qhpGbzRL2l_DyTHjH_W2bqsSTCvu6eLqlEvXPSK3PYacEol83W3dEknHNg0FDD9fY2aTFXkDaiYAch5KxExglQDj4-tIrwNiMSqvaLkppY35dady1txWe7i9vMyoIxgBrsCLmKrEd-t6MdzE0eBG_wfJnLzqRIaiVMtaLfS-Kuy2u4eKtGlvvQ5c9qy3JW_e2Lwymi9ZawvoPHgxvIvI329Hz3WCj0LrIeK8v4rQsHyl7xecTDb2NqnptfSrQm1hw==
+    url: https://cdn.discordapp.com/attachments/1231515434407432274/1238096478665314334/The_Perfect_Funder_Guidebook_V4.pdf?ex=663eb373&is=663d61f3&hm=ea237a5aabc73a2d9c3c2f3c85aac1b9efd338ef0b0d0164cd9f9f3a46bd133c&
     action_title: Download now !
     image:
       url: /assets/img/toolkit/guidebook.png
       description: Guidebook illustration
 
 playlists:
-  - title: "<strong>“From the otherside”</strong> : Interviews of European officials to understand their vision of projects. "
+  - title: "<strong>From the otherside</strong> : Interviews of European officials to understand their vision of projects. "
     videos:
+      - lJ0IhJ6PuSk # From the Otherside #1 : Fabien Robert from Bordeaux
       - TuDOW0EMnDE # From the otherside #2 : Hana Třeštíková from Prague
       - jILlr6NMd6Y # From the otherside #3 : Maya Vetri & Lorenzo Giardinetti
   - title: "<strong>Funding journeys</strong> : Follow community members before and after their meetings with authorities."
@@ -24,17 +25,22 @@ playlists:
       - cupJ9UpzsHk # Funding Journey #1 : Adrian in Wroclaw
       - UkuQUjC_Z5w # Funding Journey #2 : Coen and Doris in Tillburg
       - lcQYGU1RwIQ # Funding Journey #3 : Sara in Rome
-  - title: "<strong>Keys Against Skepticism</strong>"
+  - title: "<strong>Tutorials</strong> : We guide you with our style through different funding steps"
+    videos:
+      - T9wqb9AgiLo # Tutorial #1 : How to find sponsors?
+      - AbgQwD3DUb4 # Tutorial #2 : How to prepare a meeting with sponsors
+  - title: "<strong>Keys Against Skepticism</strong> : Arguments in motion to answer skeptical questions"
     videos:
       - lMWikHASAeg # Keys Against Skepticism #1 : Environmental impact of paper maps
       - gGQEeqcreQg # Keys Against Skepticism #2 : The USE-IT fee
       - q83KVA_DTGY # Keys Against Skepticism #3 : Youth Tourism Benefits
-  - title: "<strong>Examples of continuity</strong>"
+  - title: "<strong>Examples of continuity</strong> : Learn from dinosaurs of USE-IT community to sustain your project"
     videos: 
       - cBRIKUNKIw8 # Examples of continuity #1 - OSLO
-  - title: "<strong>Tutorials</strong>"
+  - title: "<strong>European funding</strong>"
     videos:
-      - T9wqb9AgiLo # Tutorial #1 : How to find sponsors?
-      - T9wqb9AgiLo # Tutorial #2 : How to prepare a meeting with sponsors
-      - DsCJ64qOjag # USE-IT Topic Meeting : About Crowdfunding
       - 4wOQOhdtpU0 # European Solidarity Corps Introduction by Mafalda
+  - title: "<strong>Extra</strong>"
+    videos:
+      - DsCJ64qOjag # USE-IT Topic Meeting : About Crowdfunding
+      - 12vsuUIng3g # Success Recipes - Arnhem Girls

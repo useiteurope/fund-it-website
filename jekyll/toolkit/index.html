@@ -30,16 +30,20 @@ layout: default
             webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allow="autoplay; fullscreen"
             width="100%" style="aspect-ratio: 9 / 6"></iframe>
     </section>
-    <section class="page__bottom-content">
+    <section class="toolkit__ourvideos page__bottom-content">
         <h2>Our videos</h2>
-        {%- for playlist in site.data.toolkit.playlists -%}
-        <h3>{{ playlist.title }}</h3>
-        <div class="columns--start">
-            {%- for video_url in playlist.videos -%}
-            <youtube-video class="column__item--small" embed="{{ video_url }}"></youtube-video>
+        <div class="toolkit__playlists">
+            {%- for playlist in site.data.toolkit.playlists -%}
+            <div class="toolkit__playlist">
+                <h3>{{ playlist.title }}</h3>
+                <div class="columns--start">
+                    {%- for video_url in playlist.videos -%}
+                    <youtube-video class="column__item--small" embed="{{ video_url }}"></youtube-video>
+                    {%- endfor -%}
+                </div>
+            </div>
             {%- endfor -%}
         </div>
-        {%- endfor -%}
     </section>
 
 </div>
