@@ -38,7 +38,8 @@ layout: default
                 <h3>{{ playlist.title }}</h3>
                 <div class="columns--start">
                     {%- for video_url in playlist.videos -%}
-                    <youtube-video class="column__item--small" embed="{{ video_url }}"></youtube-video>
+                    <youtube-video class="column__item--small" embed="{{ video_url }}"
+                        apiKey="{{ site.data.youtube.api_key }}" />
                     {%- endfor -%}
                 </div>
             </div>

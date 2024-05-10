@@ -74,9 +74,29 @@
             left: 50%;
             transform: translate3d(-50%, -50%, 0);
         }
+
+        .youtube .title {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            background-color: #333;
+            opacity: 0.8;
+            color: white;
+            padding-top: 12pt;
+            padding-bottom: 12pt;
+            padding-right: 12pt;
+            padding-left: 18pt;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 80%;
+            border-radius: 30pt 0 0 0;
+        }
     </style>
     <div class="youtube">
         <div class="play-button"></div>
+        <div class="title"></div>
     </div>
     <dialog>
         <iframe frameborder="0" allowfullscreen="">
@@ -85,11 +105,22 @@
 </template>
 
 <script>
+    class VideoMeta {
+        /** @type string **/
+        thumbnailUrl
+
+        /** @type string **/
+        description
+
+        constructor(thumbnailUrl, description) {
+            this.thumbnailUrl = thumbnailUrl
+            this.description = description
+        }
+    }
+
     customElements.define(
         "youtube-video",
         class extends HTMLElement {
-            static observedAttributes = ["color", "size"];
-
             constructor() {
                 super();
                 let template = document.getElementById("youtube-video");
@@ -100,36 +131,81 @@
                 this._internals = this.attachInternals();
             }
 
-            async connectedCallback() {
-                const embedId = this.getAttribute("embed");
-                const videoElem = this._internals.shadowRoot.querySelector(".youtube");
-                const dialog = this._internals.shadowRoot.querySelector("dialog");
+            /** @return VideoMeta **/
+            async getDetails(embedId) {
+                console.log(`Get details for ${embedId}`)
+                const jsonResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=${embedId}&key=${this.apiKey}`);
+                const response = await jsonResponse.json()
+                const movie = response.items[0];
+                console.log(`Get details for ${embedId} : ${JSON.stringify(movie.snippet)}`)
+                return new VideoMeta(
+                    movie.snippet.thumbnails.standard?.url ?? movie.snippet.thumbnails.medium?.url ?? movie.snippet.thumbnails.default?.url,
+                    movie.snippet.title,
+                )
+            }
 
-                const source = "https://img.youtube.com/vi/" + embedId + "/sddefault.jpg";
+            /**
+             * @param {Element} videoElem
+             * @param {VideoMeta} videoDetails
+             **/
+            updateThumbnail(videoElem, videoDetails) {
                 const image = new Image();
 
-                image.src = source;
+                image.src = videoDetails.thumbnailUrl;
 
                 image.addEventListener("load", function () {
                     videoElem.appendChild(image);
                 });
+            }
+
+            /**
+             * @param {Element} videoElem
+             * @param {VideoMeta} videoDetails
+             **/
+            updateTitle(videoDetails) {
+                const titleElem = this._internals.shadowRoot.querySelector(".youtube .title");
+                titleElem.innerHTML = videoDetails.description
+            }
+
+            hidePlayerDialog(dialog, youtubeIframe) {
+                dialog.close();
+                youtubeIframe.setAttribute("src", "")
+            }
+
+            setupAndShowPlayerDialog(embedId) {
+                const that = this
+                const dialog = this._internals.shadowRoot.querySelector("dialog");
+
+                const youtubeIframe = dialog.querySelector("iframe")
+                youtubeIframe.setAttribute("src", "https://www.youtube.com/embed/" + embedId + "?rel=0&showinfo=0&autoplay=1");
+                dialog.showModal();
+                dialog.addEventListener("click", function (event) {
+                    const rect = dialog.getBoundingClientRect();
+                    const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
+                        && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+                    if (!isInDialog) {
+                        that.hidePlayerDialog(dialog, youtubeIframe)
+                    }
+                });
+            }
+
+            connectedCallback() {
+                const that = this
+                const embedId = this.getAttribute("embed");
+                this.apiKey = this.getAttribute("apiKey");
+                const videoElem = this._internals.shadowRoot.querySelector(".youtube");
+
+
+                this.getDetails(embedId).then((videoDetails) => {
+                    console.log(JSON.stringify(videoDetails))
+                    this.updateThumbnail(videoElem, videoDetails)
+                    this.updateTitle(videoDetails)
+                })
+
 
                 videoElem.addEventListener("click", function () {
-
-                    const youtubeIframe = dialog.querySelector("iframe")
-                    youtubeIframe.setAttribute("src", "https://www.youtube.com/embed/" + embedId + "?rel=0&showinfo=0&autoplay=1");
-                    dialog.showModal();
-                    dialog.addEventListener("click", function (event) {
-                        const rect = dialog.getBoundingClientRect();
-                        const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
-                            && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
-                        if (!isInDialog) {
-                            dialog.close();
-                            youtubeIframe.setAttribute("src", "")
-                        }
-                    });
+                    that.setupAndShowPlayerDialog(embedId)
                 });
-
             }
 
             disconnectedCallback() {
