@@ -135,7 +135,6 @@
 
             /** @return VideoMeta **/
             async getDetails(embedId) {
-                console.log(`Get details for ${embedId}`)
                 const jsonResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=${embedId}&key=${this.apiKey}`);
                 const response = await jsonResponse.json()
                 const movie = response.items[0];
@@ -204,7 +203,6 @@
 
 
                 this.getDetails(embedId).then((videoDetails) => {
-                    console.log(JSON.stringify(videoDetails))
                     this.updateThumbnail(videoElem, videoDetails)
                     this.updateTitle(videoDetails)
                 })
