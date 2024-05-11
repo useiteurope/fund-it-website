@@ -1,0 +1,175 @@
+<template id="lazyiframe">
+    <style>
+        .lazyiframe {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .lazyiframe__placeholder {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+
+            background: linear-gradient(-45deg, #e0e0e0 42%, #d7d7d7 50%, #e0e0e0 58%);
+            background-position-x: 100%;
+            background-size: 300%;
+            animation: shimmer 1.5s linear 10;
+        }
+
+        .lazyiframe__placeholder--hidden {
+            animation: fadeOut 0.3s;
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position-x: 0%;
+            }
+        }
+
+        .lazyiframe__iframe {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            display: block;
+        }
+
+        .lazyiframe__iframe--hidden {
+            opacity: 0;
+        }
+
+
+        .lazyiframe__iframe--visible {
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <div class="lazyiframe">
+        <div class="lazyiframe__placeholder" style="width: 100%; height: 100%;"></div>
+    </div>
+</template>
+
+<script>
+    customElements.define(
+        "lazy-iframe",
+        class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: "open" });
+                this._internals = this.attachInternals()
+                const template = document.getElementById("lazyiframe")
+                const templateContent = template.content
+
+                this._internals.shadowRoot.appendChild(templateContent.cloneNode(true))
+            }
+
+            get iframe() {
+                return this._internals.shadowRoot.querySelector('.lazyiframe__iframe')
+            }
+
+            get placeholder() {
+                return this._internals.shadowRoot.querySelector('.lazyiframe__placeholder')
+            }
+
+            showPlaceholder() {
+            }
+
+            showIframe() {
+                this.iframe.classList.add("lazyiframe__iframe--visible")
+                this.iframe.classList.remove("lazyiframe__iframe--hidden")
+                this.placeholder.classList.add("lazyiframe__placeholder--hidden")
+            }
+
+            isIframeLoaded = false
+            _loadIframe() {
+                if (this.isIframeLoaded) return
+                this.isIframeLoaded = true
+                const src = this.getAttribute("src")
+                const title = this.getAttribute("title")
+
+
+                const iframe = document.createElement("iframe")
+                iframe.setAttribute("class", "lazyiframe__iframe lazyiframe__iframe--hidden")
+                iframe.setAttribute("frameborder", "0")
+                iframe.setAttribute("webkitallowfullscreen", "true")
+                iframe.setAttribute("mozallowfullscreen", "true")
+                iframe.setAttribute("allowfullscreen", "true")
+                iframe.setAttribute("allow", "autoplay; fullscreen")
+                iframe.setAttribute("style", "width: 100%; height: 100%;")
+                iframe.setAttribute("src", src)
+                iframe.setAttribute("title", title)
+                iframe.innerHTML = '<head><meta name="robots" content="noindex, nofollow"></head>'
+                this._internals.shadowRoot.querySelector(".lazyiframe").appendChild(iframe)
+
+
+                iframe.onload = () => {
+                    this.showIframe()
+                }
+            }
+
+            onPlaceholderVisible(callback) {
+                new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                callback()
+                            }
+                            // Each entry describes an intersection change for one observed
+                            // target element:
+                            //   entry.boundingClientRect
+                            //   entry.intersectionRatio
+                            //   entry.intersectionRect
+                            //   entry.isIntersecting
+                            //   entry.rootBounds
+                            //   entry.target
+                            //   entry.time
+                        });
+                    },
+                    {
+                        rootMargin: "0px",
+                        threshold: 1.0,
+                    },
+                ).observe(this.placeholder)
+            }
+
+            connectedCallback() {
+                const that = this
+                this.showPlaceholder()
+
+                this.onPlaceholderVisible(function () {
+                    that._loadIframe()
+                })
+            }
+
+            disconnectedCallback() { }
+
+            adoptedCallback() { }
+        }
+
+    )
+</script>

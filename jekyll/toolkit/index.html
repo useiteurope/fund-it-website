@@ -3,6 +3,7 @@ title: Our toolkit
 layout: default
 ---
 {%- include component-youtube-video.html -%}
+{%- include component-lazyiframe.html -%}
 
 <div class="page__top-content width--wide toolkit">
     <h1>Enjoy the perfect <strong>fundraiser toolkit !</strong></h1>
@@ -26,9 +27,9 @@ layout: default
         </div>
     </section>
     <section>
-        <iframe src="https://prezi.com/p/embed/ccgc-jb5-hsx/" id="iframe_container" frameborder="0"
-            webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allow="autoplay; fullscreen"
-            width="100%" style="aspect-ratio: 9 / 6" loading="lazy"></iframe>
+        <lazy-iframe src="https://prezi.com/p/embed/ccgc-jb5-hsx/" title="Timeline funding and mapping a Use-It map"
+            style="display: block; width: 100%; aspect-ratio: 9 / 6; border-radius: 6pt; overflow: hidden;">
+        </lazy-iframe>
     </section>
     <section class="toolkit__ourvideos page__bottom-content">
         <h2>Our videos</h2>
