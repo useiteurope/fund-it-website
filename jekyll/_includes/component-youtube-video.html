@@ -99,7 +99,9 @@
         <div class="title"></div>
     </div>
     <dialog>
-        <iframe frameborder="0" allowfullscreen="" loading="lazy">
+        <iframe frameborder="0" allowfullscreen="" loading="lazy" allow="accelerometer; autoplay;
+        encrypted-media; gyroscope;
+        picture-in-picture">
         </iframe>
     </dialog>
 </template>
@@ -171,8 +173,10 @@
             }
 
             hidePlayerDialog(dialog, youtubeIframe) {
+                youtubeIframe.setAttribute("src", "");
+                youtubeIframe.innerHTML = '<iframe frameborder="0" allowfullscreen="" loading="lazy" allow="accelerometer; autoplay;encrypted-media; gyroscope;picture-in-picture"></iframe>';
+                youtubeIframe.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
                 dialog.close();
-                youtubeIframe.setAttribute("src", "")
             }
 
             setupAndShowPlayerDialog(embedId) {
@@ -180,7 +184,7 @@
                 const dialog = this._internals.shadowRoot.querySelector("dialog");
 
                 const youtubeIframe = dialog.querySelector("iframe")
-                youtubeIframe.setAttribute("src", "https://www.youtube.com/embed/" + embedId + "?rel=0&showinfo=0&autoplay=1");
+                youtubeIframe.setAttribute("src", "https://www.youtube.com/embed/" + embedId + "?rel=0&showinfo=0&autoplay=1&enablejsapi=1");
                 dialog.showModal();
                 dialog.addEventListener("click", function (event) {
                     const rect = dialog.getBoundingClientRect();
