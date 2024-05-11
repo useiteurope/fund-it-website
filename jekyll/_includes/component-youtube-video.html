@@ -215,7 +215,10 @@
                 const dialog = this._internals.shadowRoot.querySelector("dialog");
 
                 const youtubeIframe = dialog.querySelector("iframe")
-                youtubeIframe.setAttribute("src", "https://www.youtube.com/embed/" + embedId + "?rel=0&showinfo=0&autoplay=1&enablejsapi=1");
+                youtubeIframe.setAttribute("src", "https://www.youtube.com/embed/" + embedId + "?rel=0&showinfo=0&enablejsapi=1");
+                youtubeIframe.onload = () => {
+                    youtubeIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
+                }
                 dialog.showModal();
                 dialog.addEventListener("click", function (event) {
                     const rect = dialog.getBoundingClientRect();
