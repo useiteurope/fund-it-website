@@ -1,15 +1,24 @@
 @import "breakpoints"
-header
+header.width--wide
     display: flex
     flex-flow: row
     padding-top: 14pt
     padding-bottom: 14pt
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    background-color: $background-color
+    z-index: 3
 
     .logo
         flex-grow: 1
         img
             height: 45pt
             width: auto
+
+header.width--wide.sticky
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6)
 
 @media screen and (max-width: $breakpoint-small)
     .site-nav
