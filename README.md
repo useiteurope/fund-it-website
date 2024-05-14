@@ -1,4 +1,4 @@
-# Fund-It website.
+# Fund-It website..
 
 [![production](https://badgen.net/badge/production/Website/)](https://fund-it-website.pages.dev/)
 [![pagespeed report](https://badgen.net/badge/production/PageSpeed/purple)](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ffund-it-website.pages.dev%2F)
