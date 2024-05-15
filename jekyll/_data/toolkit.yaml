@@ -13,6 +13,13 @@ ressources:
     image:
       url: /assets/toolkit/guidebook.png
       description: Guidebook illustration
+  - title: EU money opportunities
+    description: Here is a little digest about European funding opportunities for USE-IT initiatives and others.
+    url: /assets/toolkit/EU_money_for_USE-IT_maps_1-1.pdf
+    action_title: Download now !
+    image:
+      url: /assets/toolkit/eu_money_thumbnail.png
+      description: European funding opportunities illustration
 
 playlists:
   - title: "<strong>From the otherside</strong> : Interviews of European officials to understand their vision of projects. "
