@@ -6,24 +6,24 @@ part2:
   items:
     - title: Hard skills
       image:
-        url: /assets/img/how_become_expert/hard_skills.jpg
+        url: /assets/home/how_become_expert/hard_skills.jpg
         description: Hard skills illustration
       body: We all have quite some enthusiasm at first for projects before having hard skills to achieve our goals ! Don’t worry we are here to share our tips on planning, budgeting and negociating !
     - title: Knowledge
       image:
-        url: /assets/img/how_become_expert/knowledge.jpg
+        url: /assets/home/how_become_expert/knowledge.jpg
         description: Knowledge illustration
       body: Where is the money? How to reach it? We will help you answering those questions by opening your mind about potential sponsors, structure of institutions and vision of money people.
     - title: Inspiration
       image:
-        url: /assets/img/how_become_expert/inspiration.jpg
+        url: /assets/home/how_become_expert/inspiration.jpg
         description: Inspiration illustration
       body: "What are the best practices? Get inspired with our map of USE-IT project initiatives and experience the funding journey through stories of study cases of FUND IT project: pilot cities !"
 
 part3:
   title: What is FUND-IT ?
   image:
-    url: /assets/img/what_is_fundit.jpg
+    url: /assets/home/what_is_fundit.jpg
     description: What is fundit illustration
   testimony:
     title: Before being you best funding friend , FUND-IT is a 2 years and half European journey made possible thanks to Erasmus +.

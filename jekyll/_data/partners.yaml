@@ -1,7 +1,7 @@
 - image:
-    url: /assets/img/logo_fundit.png
+    url: /assets/global/img/logo_fundit.png
     description: Logo FundIt
 - description: Co-funded by<br />the European Union
   image:
-    url: /assets/img/europe_flag.jpg
+    url: /assets/partners/europe_flag.jpg
     description: Europe flag

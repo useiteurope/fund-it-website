@@ -35,6 +35,10 @@ defaults:
 webserver_headers:
   "Access-Control-Allow-Origin": "*"
   "Server": "CustomServerName"
+
+youtube:
+  api_key: AIzaSyAkoU--5EwdMo6sngN1SAfqXSegFejAzcY
+  
 # Build settings
 # theme: minima
 # plugins:

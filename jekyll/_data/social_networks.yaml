@@ -1,12 +1,12 @@
 - image:
-    url: /assets/img/facebook_outlined.svg
+    url: /assets/social_networks/facebook_outlined.svg
     description: Facebook logo
   url:  https://www.facebook.com/funditeurope
 - image:
-    url: /assets/img/youtube_outlined.svg
+    url: /assets/social_networks/youtube_outlined.svg
     description: Youtube logo
   url: http://www.youtube.com/@USEITmaps
 - image:
-    url: /assets/img/instagram_outlined.svg
+    url: /assets/social_networks/instagram_outlined.svg
     description: Instragram logo
   url: https://www.instagram.com/funditeurope/
