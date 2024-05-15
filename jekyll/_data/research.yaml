@@ -1,0 +1,29 @@
+ressources:
+  - title: Group 3
+    description: Once there was a map looking for Challenges and personal benefits
+    url: /research/assets/GROUP-3-one-edition-challenges-and-benefits.pdf
+    action_title: Download now !
+    image:
+      url: /research/assets/group3_thumbnail.png
+      description: Use-It illustration
+  - title: Group 4
+    description: Mission accomplished looking for reasons of their temporary sustainability & their ends
+    url: /research/assets/GROUP-4-temporary-sustainability-reasons.pdf
+    action_title: Download now !
+    image:
+      url: /research/assets/group4_thumbnail.png
+      description: Use-It illustration
+  - title: Group 5
+    description: "First edition made: looking for fresh stories"
+    url: /research/assets/GROUP-5-REPORT-first-edition-fresh-stories.pdf
+    action_title: Download now !
+    image:
+      url: /research/assets/group5_thumbnail.png
+      description: Use-It illustration
+  - title: Group 6
+    description: "USE-IT dinosaurs: looking for keys of sustainability"
+    url: /research/assets/GROUP-6-REPORT-Dinosaurs-Keys-to-sustainability-1.pdf
+    action_title: Download now !
+    image:
+      url: /research/assets/group6_thumbnail.png
+      description: Use-It illustration

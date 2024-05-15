@@ -9,4 +9,34 @@ layout: default
             src="https://www.mapotic.com/fund-it-project/embed">
         </iframe>
     </div>
+
+    <section>
+        The map has been made from the database pf our research work. You can access the database just here !
+        <br />
+        TIP : Use FILTER feature to find what you want super quickly !
+        <br />
+        <a href="https://airtable.com/appiTefFKsGtqbKei/shrSykEevakDf8jnP/tbl6TsTXeamDOaeHP/viwx5SofBjmSkBrmG"
+            target="_blank" class="text-link">Go to database</a>
+    </section>
+    <section>
+        <h2>Our research conclusions</h2>
+
+        <h3>We identified different profiles among map makers community. We studied their data and stories to build
+            statistics. Here are our conclusions through 4 group reports! <br />Be brave and discover the truth</h3>
+        <div class="toolkit__resources flex--space-between">
+            {%- for resource in site.data.research.ressources -%}
+            <div class="toolkit__resource flex__item">
+                <h3>{{ resource.title }}</h3>
+                <div class="layout-two-columns">
+                    {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
+                    class="layout-two-columns__left picture--square"%}
+                    <div class="layout-two-columns__right">
+                        <p>{{ resource.description }}</p>
+                        <a href="{{ resource.url }}" target="_blank" class="text-link">{{ resource.action_title }}</a>
+                    </div>
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </section>
 </div>
