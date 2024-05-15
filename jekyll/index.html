@@ -27,7 +27,7 @@ layout: default
 
     <div class="items">
       {%- for item in site.data.home.part2.items -%}
-      <div class="item">
+      <div class="card">
         {%- picture {{ item.image.url }} --alt '{{ item.image.description }}' -%}
         <h3>{{ item.title }}</h3>
         <p>{{ item.body }}</p>
