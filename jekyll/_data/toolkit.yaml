@@ -4,14 +4,14 @@ ressources:
     url: https://www.canva.com/design/DAFg0BW6hKE/cu3ApUpBkq6F8eKOknfyhQ/edit
     action_title: Edit me !
     image:
-      url: /assets/img/toolkit/booklet.png
+      url: /assets/toolkit/booklet.png
       description: Use-It illustration
   - title: The perfect funder guidebook
     description: A complete overview of the funding process and good practices and also examples from the USE-IT community
-    url: https://cdn.discordapp.com/attachments/1231515434407432274/1238096478665314334/The_Perfect_Funder_Guidebook_V4.pdf?ex=663eb373&is=663d61f3&hm=ea237a5aabc73a2d9c3c2f3c85aac1b9efd338ef0b0d0164cd9f9f3a46bd133c&
+    url: /assets/toolkit/The_Perfect_Funder_Guidebook_V4.pdf
     action_title: Download now !
     image:
-      url: /assets/img/toolkit/guidebook.png
+      url: /assets/toolkit/guidebook.png
       description: Guidebook illustration
 
 playlists:
