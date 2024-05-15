@@ -8,7 +8,7 @@
 .navigation-link:hover
     background: #eee
 
-@mixin text-link ()
+@mixin text-link__base ()
     text-decoration: none
     display: inline-block
     border: 0
@@ -16,13 +16,54 @@
     text-align: center
     padding: 6pt 12pt
     font: 700 $font-size-regular $font-clash
+    opacity: 1
 
-.text-link
-    @include text-link
+@mixin text-link
+    @include text-link__base
     background-color: $primary-color
     color: $on-primary-color
-
-.text-link--negative
+.text-link
     @include text-link
+
+@mixin text-link--disabled
+    @include text-link
+    opacity: 0.6
+
+.text-link--disabled
+    @include text-link--disabled
+
+@mixin text-link--negative
+    @include text-link__base
     background-color: $on-primary-color
     color: $primary-color
+
+.text-link--negative
+    @include text-link--negative
+
+@mixin text-link--outlined_negative ()
+    @include text-link__base
+    background-color: transparent
+    border-color: $primary-color
+    border-style: solid
+    border-width: 2pt
+    border-radius: 10pt
+    padding: 20pt 35pt
+    font: 600 $font-size-regular $font-clash
+    color: $primary-color
+
+.text-link--outlined_negative
+    @include text-link--outlined_negative
+
+@mixin text-link--outlined ()
+    @include text-link__base
+    background-color: $primary-color
+    border-color: $primary-color
+    border-style: solid
+    border-width: 2pt
+    border-radius: 10pt
+    padding: 20pt 35pt
+    font: 600 $font-size-regular $font-clash
+    color: $on-primary-color
+
+.text-link--outlined
+    @include text-link--outlined

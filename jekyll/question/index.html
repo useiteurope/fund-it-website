@@ -1,0 +1,41 @@
+---
+title: Decision help
+layout: default
+hide: true
+---
+
+
+<div class="width--wide page__top-content page__bottom-content">
+    <h1>{{site.data.question.home.title}}</h1>
+    <section class="questionpage">
+        <div class="questionpage__choices">
+            <h2>Are you working on a USE-IT map or something else ?</h2>
+
+            <div class="choices">
+                <input type="radio" id="do_map" name="project" value="do_map" style="display: none" />
+                <label for="do_map">I want to do<br />a USE-IT map! </label>
+
+                <input type="radio" id="other_project" name="project" value="other_project" style="display: none" />
+                <label for="other_project">I have another<br />project! </label>
+            </div>
+        </div>
+        <div class="questionpage__validation">
+            {%- picture /assets/question/illustration.png --alt 'Nice choice illustration' -%}
+
+            <a id="questionpage_submit">What you’ve got for me ?</a>
+        </div>
+    </section>
+</div>
+<script>
+    function _updateProjectLink(url) {
+        document.querySelector("#questionpage_submit").setAttribute("href", url)
+    }
+    document.querySelector("#do_map").addEventListener('change', function () {
+        if (!this.checked) return
+        _updateProjectLink('/question/do_map.html')
+    });
+    document.querySelector("#other_project").addEventListener('change', function () {
+        if (!this.checked) return
+        _updateProjectLink('/question/other_project.html')
+    });
+</script>

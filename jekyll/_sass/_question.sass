@@ -1,0 +1,18 @@
+.questionpage
+    .questionpage__choices
+        .choices
+            input
+                +
+                    label
+                        @include text-link__outlined_negative
+            input:checked
+                +
+                    label
+                        @include text-link--outlined
+
+    .questionpage__validation
+        a:link
+            @include text-link
+
+        a
+            @include text-link--disabled
