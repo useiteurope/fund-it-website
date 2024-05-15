@@ -3,28 +3,23 @@ title: Our research
 layout: default
 ---
 <div class="width--wide page__top-content page__bottom-content">
-    <h1>Our research report :<br /><strong>100 cities in 15 years</strong></h1>
-    <div style="-webkit-overflow-scrolling: touch; overflow-y: auto; line-height: 0px;">
-        <iframe style="overflow: hidden; width: 100%; height: 600px;" allow="geolocation ; camera;" frameborder="0"
-            src="https://www.mapotic.com/fund-it-project/embed">
-        </iframe>
-    </div>
-
+    <h1>{{site.data.research.title}}</h1>
     <section>
-        The map has been made from the database pf our research work. You can access the database just here !
-        <br />
-        TIP : Use FILTER feature to find what you want super quickly !
-        <br />
-        <a href="https://airtable.com/appiTefFKsGtqbKei/shrSykEevakDf8jnP/tbl6TsTXeamDOaeHP/viwx5SofBjmSkBrmG"
-            target="_blank" class="text-link">Go to database</a>
+        <div style="-webkit-overflow-scrolling: touch; overflow-y: auto; line-height: 0px;">
+            <iframe style="overflow: hidden; width: 100%; height: 600px;" allow="geolocation ; camera;" frameborder="0"
+                src="https://www.mapotic.com/fund-it-project/embed">
+            </iframe>
+        </div>
+        <p>{{site.data.research.database.caption}}</p>
+        <a href="{{site.data.research.database.button.url}}" target="_blank"
+            class="text-link">{{site.data.research.database.button.title}}</a>
     </section>
     <section>
-        <h2>Our research conclusions</h2>
+        <h2>{{site.data.research.ressources.title}}</h2>
 
-        <h3>We identified different profiles among map makers community. We studied their data and stories to build
-            statistics. Here are our conclusions through 4 group reports! <br />Be brave and discover the truth</h3>
+        <h3>{{site.data.research.ressources.subtitle}}</h3>
         <div class="toolkit__resources flex--space-between">
-            {%- for resource in site.data.research.ressources -%}
+            {%- for resource in site.data.research.ressources.items -%}
             <div class="toolkit__resource flex__item">
                 <h3>{{ resource.title }}</h3>
                 <div class="layout-two-columns">

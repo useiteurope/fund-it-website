@@ -1,29 +1,43 @@
+title: Our research report :<br /><strong>100 cities in 15 years</strong>
+database:
+  caption: |
+    The map has been made from the database pf our research work. You can access the database just here !
+    <br />
+    <em>TIP : Use FILTER feature to find what you want super quickly !</em>
+  button:
+    title: Go to database !
+    url: https://airtable.com/appiTefFKsGtqbKei/shrSykEevakDf8jnP/tbl6TsTXeamDOaeHP/viwx5SofBjmSkBrmG
 ressources:
-  - title: Group 3
-    description: Once there was a map looking for Challenges and personal benefits
-    url: /assets/research/GROUP-3-one-edition-challenges-and-benefits.pdf
-    action_title: Download now !
-    image:
-      url: /assets/research/group3_thumbnail.png
-      description: Use-It illustration
-  - title: Group 4
-    description: Mission accomplished looking for reasons of their temporary sustainability & their ends
-    url: /assets/research/GROUP-4-temporary-sustainability-reasons.pdf
-    action_title: Download now !
-    image:
-      url: /assets/research/group4_thumbnail.png
-      description: Use-It illustration
-  - title: Group 5
-    description: "First edition made: looking for fresh stories"
-    url: /assets/research/GROUP-5-REPORT-first-edition-fresh-stories.pdf
-    action_title: Download now !
-    image:
-      url: /assets/research/group5_thumbnail.png
-      description: Use-It illustration
-  - title: Group 6
-    description: "USE-IT dinosaurs: looking for keys of sustainability"
-    url: /assets/research/GROUP-6-REPORT-Dinosaurs-Keys-to-sustainability-1.pdf
-    action_title: Download now !
-    image:
-      url: /assets/research/group6_thumbnail.png
-      description: Use-It illustration
+  title: Our research conclusions
+  subtitle: |
+    We identified different profiles among map makers community. We studied their data and stories to build
+    statistics. Here are our conclusions through 4 group reports! <br />Be brave and discover the truth
+  items:
+    - title: Group 3
+      description: Once there was a map looking for Challenges and personal benefits
+      url: /assets/research/GROUP-3-one-edition-challenges-and-benefits.pdf
+      action_title: Download now !
+      image:
+        url: /assets/research/group3_thumbnail.png
+        description: Use-It illustration
+    - title: Group 4
+      description: Mission accomplished looking for reasons of their temporary sustainability & their ends
+      url: /assets/research/GROUP-4-temporary-sustainability-reasons.pdf
+      action_title: Download now !
+      image:
+        url: /assets/research/group4_thumbnail.png
+        description: Use-It illustration
+    - title: Group 5
+      description: "First edition made: looking for fresh stories"
+      url: /assets/research/GROUP-5-REPORT-first-edition-fresh-stories.pdf
+      action_title: Download now !
+      image:
+        url: /assets/research/group5_thumbnail.png
+        description: Use-It illustration
+    - title: Group 6
+      description: "USE-IT dinosaurs: looking for keys of sustainability"
+      url: /assets/research/GROUP-6-REPORT-Dinosaurs-Keys-to-sustainability-1.pdf
+      action_title: Download now !
+      image:
+        url: /assets/research/group6_thumbnail.png
+        description: Use-It illustration
