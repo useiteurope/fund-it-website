@@ -1,2 +1,16 @@
 home:
   title: Let us know a bit more about your project
+
+other_project:
+  sponsors:
+    videos:
+      - T9wqb9AgiLo # Tutorial #1 : How to find sponsors?
+  next_steps:
+    resources:
+      - title: The perfect funder guidebook
+        description: A complete overview of the funding process and good practices and also examples from the USE-IT community
+        url: /assets/toolkit/The_Perfect_Funder_Guidebook_V4.pdf
+        action_title: Download now !
+        image:
+          url: /assets/toolkit/guidebook.png
+          description: Guidebook illustration
