@@ -44,3 +44,17 @@
 
         a
             @include text-link--disabled
+
+.question__domap__items
+    display: flex
+    flex-wrap: wrap
+    gap: 12pt
+    flex-flow: row
+    @media screen and (max-width: $breakpoint-medium)
+        flex-flow: column
+
+.question__domap__actions
+    display: flex
+    flex-direction: row
+    justify-content: right
+    
