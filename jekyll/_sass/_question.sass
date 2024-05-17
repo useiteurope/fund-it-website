@@ -1,16 +1,44 @@
 .questionpage
+    display: flex
+    flex-wrap: wrap
+    // flex-flow: row
+    column-gap: 80pt
+    row-gap: 60pt
+
+    @media screen and (max-width: $breakpoint-medium)
+        justify-content: center
+
     .questionpage__choices
+        // flex: 2
+        // flex-shrink: 0
         .choices
+            display: flex
+            flex-flow: row
+            gap: 12pt
+            flex-wrap: wrap
+            @media screen and (max-width: $breakpoint-medium)
+                justify-content: center
+
             input
                 +
                     label
                         @include text-link__outlined_negative
+                        flex-shrink: 0
             input:checked
                 +
                     label
                         @include text-link--outlined
 
     .questionpage__validation
+        display: flex
+        flex-flow: column
+        max-width: 250pt
+        align-items: center
+        gap: 12pt
+        img
+            max-width: 200pt
+            object-fit: contain
+        // flex: 1
         a:link
             @include text-link
 
