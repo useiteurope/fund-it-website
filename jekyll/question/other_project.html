@@ -3,6 +3,7 @@ title: Help to fund any project
 layout: default
 hide: true
 ---
+{%- include component-youtube-video.html -%}
 {%- include component-lazyiframe.html -%}
 
 
@@ -32,12 +33,16 @@ hide: true
         </lazy-iframe>
 
         {%- for resource in site.data.question.other_project.next_steps.resources -%}
-        <div class="layout-two-columns">
-            {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
-            class="layout-two-columns__left picture--square"%}
-            <div class="layout-two-columns__right">
-                <p>{{ resource.description }}</p>
-                <a href="{{ resource.url }}" target="_blank" class="text-link">{{ resource.action_title }}</a>
+        <div class="toolkit__resource flex__item">
+            <h3>{{ resource.title }}</h3>
+
+            <div class="layout-two-columns">
+                {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
+                class="layout-two-columns__left picture--square"%}
+                <div class="layout-two-columns__right">
+                    <p>{{ resource.description }}</p>
+                    <a href="{{ resource.url }}" target="_blank" class="text-link">{{ resource.action_title }}</a>
+                </div>
             </div>
         </div>
         {%- endfor -%}
