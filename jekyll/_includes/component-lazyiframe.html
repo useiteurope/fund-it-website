@@ -6,13 +6,15 @@
             height: 100%;
         }
 
-        .lazyiframe__placeholder {
+        .lazyiframe__placeholder__effect {
             position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
             z-index: 0;
+
+            opacity: 0.8;
 
             background: linear-gradient(-45deg, #e0e0e0 42%, #d7d7d7 50%, #e0e0e0 58%);
             background-position-x: 100%;
@@ -21,7 +23,7 @@
         }
 
         .lazyiframe__placeholder--hidden {
-            animation: fadeOut 0.3s;
+            visibility: none;
         }
 
         @keyframes shimmer {
@@ -70,7 +72,8 @@
         }
     </style>
     <div class="lazyiframe">
-        <div class="lazyiframe__placeholder" style="width: 100%; height: 100%;"></div>
+        <slot name="placeholder" class="lazyiframe__placeholder__background" style="width: 100%; height: 100%;"></slot>
+        <div class="lazyiframe__placeholder__effect" style="width: 100%; height: 100%;"></div>
     </div>
 </template>
 
@@ -88,12 +91,18 @@
                 this._internals.shadowRoot.appendChild(templateContent.cloneNode(true))
             }
 
+            animationDuration = 300;
+
             get iframe() {
                 return this._internals.shadowRoot.querySelector('.lazyiframe__iframe')
             }
 
-            get placeholder() {
-                return this._internals.shadowRoot.querySelector('.lazyiframe__placeholder')
+            get placeholderEffect() {
+                return this._internals.shadowRoot.querySelector('.lazyiframe__placeholder__effect')
+            }
+
+            get placeholderBackground() {
+                return this._internals.shadowRoot.querySelector('.lazyiframe__placeholder__background')
             }
 
             showPlaceholder() {
@@ -102,7 +111,11 @@
             showIframe() {
                 this.iframe.classList.add("lazyiframe__iframe--visible")
                 this.iframe.classList.remove("lazyiframe__iframe--hidden")
-                this.placeholder.classList.add("lazyiframe__placeholder--hidden")
+
+                setTimeout(function () {
+                    this.placeholderEffect.classList.add("lazyiframe__placeholder--hidden")
+                    this.placeholderBackground.classList.add("lazyiframe__placeholder--hidden")
+                }, animationDuration);
             }
 
             isIframeLoaded = false
@@ -145,7 +158,7 @@
                         rootMargin: "0px",
                         threshold: 0,
                     },
-                ).observe(this.placeholder)
+                ).observe(this.placeholderEffect)
             }
 
             connectedCallback() {

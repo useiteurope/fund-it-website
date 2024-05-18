@@ -2,13 +2,18 @@
 title: Our research
 layout: default
 ---
+{%- include component-lazyiframe.html -%}
 <div class="width--wide page__top-content page__bottom-content">
     <h1>{{site.data.research.title}}</h1>
     <section>
         <div style="-webkit-overflow-scrolling: touch; overflow-y: auto; line-height: 0px;">
-            <iframe style="overflow: hidden; width: 100%; height: 600px;" allow="geolocation ; camera;" frameborder="0"
-                src="https://www.mapotic.com/fund-it-project/embed">
-            </iframe>
+            <lazy-iframe style="overflow: hidden; width: 100%; height: 600px;" allow="geolocation ; camera;"
+                frameborder="0" src="https://www.mapotic.com/fund-it-project/embed">
+                {% picture /assets/toolkit/mapotic_placeholder.jpg --alt {{ site.data.home.part3.image.description }}
+                --img style="object-fit: cover"
+                --parent
+                slot="placeholder" %}
+            </lazy-iframe>
         </div>
         <p>{{site.data.research.database.caption}}</p>
         <a href="{{site.data.research.database.button.url}}" target="_blank"

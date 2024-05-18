@@ -15,9 +15,15 @@ hide: true
     <section class="question__domap__items">
         <lazy-iframe src="https://prezi.com/p/embed/ccgc-jb5-hsx/" title="Timeline funding and mapping a Use-It map"
             style="display: block; width: 100%; aspect-ratio: 9 / 6; border-radius: 6pt; overflow: hidden;">
+            {% picture /assets/toolkit/prezi_placeholder.jpg --alt {{ site.data.home.part3.image.description }} --parent
+            slot="placeholder" %}
         </lazy-iframe>
         <lazy-iframe style="display: block; overflow: hidden; width: 100%; height: 600px;" title="Map of initiatives"
             allow="geolocation ; camera;" frameborder="0" src="https://www.mapotic.com/fund-it-project/embed">
+            {% picture /assets/toolkit/mapotic_placeholder.jpg --alt {{ site.data.home.part3.image.description }}
+            --img style="object-fit: cover"
+            --parent
+            slot="placeholder" %}
         </lazy-iframe>
     </section>
 
