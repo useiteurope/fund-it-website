@@ -2,13 +2,13 @@
 
 [![production](https://badgen.net/badge/production/Website/)](https://fund-it-website.pages.dev/)
 [![pagespeed report](https://badgen.net/badge/production/PageSpeed/purple)](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ffund-it-website.pages.dev%2F)
-[![cloudflare pages](https://badgen.net/badge/production/Hosting/yellow)](https://dash.cloudflare.com/1c0e509a9908df9ed5f452f81afc5154/pages/view/fund-it-website)
+[![cloudflare pages](https://badgen.net/badge/production/Hosting/yellow)](https://dash.cloudflare.com/d1b2c59ca185b920aa2ba8e5d531be5e/pages/view/fund-it-website)
 [![google cloud project](https://badgen.net/badge/production/GoogleCloud/orange)](https://console.cloud.google.com/welcome?organizationId=0&project=fund-it-422908)
 
 
 [![preview](https://badgen.net/badge/preview/Website/)](https://dev.fund-it-website.pages.dev/)
 [![pagespeed report](https://badgen.net/badge/preview/PageSpeed/purple)](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdev.fund-it-website.pages.dev%2F)
-[![cloudflare pages](https://badgen.net/badge/preview/Hosting/yellow)](https://dash.cloudflare.com/1c0e509a9908df9ed5f452f81afc5154/pages/view/fund-it-website)
+[![cloudflare pages](https://badgen.net/badge/preview/Hosting/yellow)](https://dash.cloudflare.com/d1b2c59ca185b920aa2ba8e5d531be5e/pages/view/fund-it-website)
 
 ## Contact Tech Team 
 
