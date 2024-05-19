@@ -4,12 +4,31 @@ layout: default
 ---
 <div class="content width--narrow page__top-content page__bottom-content">
     <h1>{{ site.data.about.title }}</h1>
-    <div class="layout-two-columns">
-        {% picture {{ site.data.about.image.url }} --alt {{ site.data.about.image.description }} --parent
-        class="layout-two-columns__left picture--square"%}
-        <div class="layout-two-columns__right">
-            <p>{{site.data.about.testimony.body}} </p>
-            <div class="caption">{{ site.data.about.testimony.footer }}</div>
+    <section class="about__content">
+        <div class="gallery pswp-gallery pswp-gallery--single-column">
+            {% for image in site.data.about.images %}
+            <a href="{{ image.url }}" data-pswp-width="{{ image.width }}" data-pswp-height="{{ image.height}}"
+                target="_blank">
+                {% picture {{ image.url }} --alt {{ image.description }} --parent class="picture--square" %}
+            </a>
+            {% endfor %}
         </div>
-    </div>
+        <div class="text">
+            <div class="body">
+                {{ site.data.about.body }}
+            </div>
+            <div class="caption">{{ site.data.about.footer }}</div>
+        </div>
+    </section>
 </div>
+
+<script type="module">
+    import PhotoSwipeLightbox from '/assets/global/libs/photoswipe/photoswipe-lightbox.esm.min.js';
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: '.gallery',
+        children: 'a',
+        pswpModule: () => import('/assets/global/libs/photoswipe/photoswipe.esm.min.js')
+    });
+    lightbox.init();
+</script>
+<link rel="stylesheet" href="/assets/global/libs/photoswipe/photoswipe.css">
