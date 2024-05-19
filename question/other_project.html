@@ -15,43 +15,52 @@ hide: true
 
     <section>
         <h2>New sponsors</h2>
-        <lazy-iframe src="https://prezi.com/p/embed/ccgc-jb5-hsx/" title="Timeline funding and mapping a Use-It map"
-            style="display: block; width: 100%; aspect-ratio: 9 / 6; border-radius: 6pt; overflow: hidden;">
-            {% picture /assets/toolkit/prezi_placeholder.jpg --alt {{ site.data.home.part3.image.description }}
-            --img style="object-fit: cover"
-            --parent slot="placeholder" %}
-        </lazy-iframe>
 
-        {%- for video_url in site.data.question.other_project.sponsors.videos -%}
-        <youtube-video class="column__item--small" embed="{{ video_url }}"
-            apiKey="{{ site.youtube.api_key }}"></youtube-video>
-        {%- endfor -%}
+        <div class="flex__wrap">
+            <lazy-iframe class="column__item--small" style="display: block; overflow: hidden; "
+                title="Map of initiatives" allow="geolocation ; camera;" frameborder="0"
+                src="https://www.mapotic.com/fund-it-project/embed">
+                {% picture /assets/toolkit/mapotic_placeholder.jpg --alt {{ site.data.home.part3.image.description }}
+                --img style="object-fit: cover"
+                --parent slot="placeholder" %}
+            </lazy-iframe>
+
+
+            {%- for video_url in site.data.question.other_project.sponsors.videos -%}
+            <youtube-video class="column__item--small" style="aspect-ratio: 9 / 6;" embed="{{ video_url }}"
+                apiKey="{{ site.youtube.api_key }}"></youtube-video>
+            {%- endfor -%}
+        </div>
     </section>
 
     <section>
         <h2>NEXT STEPS OF YOUR PROJECT </h2>
 
-        <lazy-iframe style="display: block; overflow: hidden; width: 100%; height: 600px;" title="Map of initiatives"
-            allow="geolocation ; camera;" frameborder="0" src="https://www.mapotic.com/fund-it-project/embed">
-            {% picture /assets/toolkit/mapotic_placeholder.jpg --alt {{ site.data.home.part3.image.description }}
-            --img style="object-fit: cover"
-            --parent slot="placeholder" %}
-        </lazy-iframe>
 
-        {%- for resource in site.data.question.other_project.next_steps.resources -%}
-        <div class="toolkit__resource flex__item">
-            <h3>{{ resource.title }}</h3>
+        <div class="flex__wrap">
+            <lazy-iframe class="column__item--small" src="https://prezi.com/p/embed/ccgc-jb5-hsx/"
+                title="Timeline funding and mapping a Use-It map"
+                style="display: block;  border-radius: 6pt; overflow: hidden;">
+                {% picture /assets/toolkit/prezi_placeholder.jpg --alt {{ site.data.home.part3.image.description }}
+                --img style="object-fit: cover"
+                --parent slot="placeholder" %}
+            </lazy-iframe>
 
-            <div class="layout-two-columns">
-                {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
-                class="layout-two-columns__left picture--square"%}
-                <div class="layout-two-columns__right">
-                    <p>{{ resource.description }}</p>
-                    <a href="{{ resource.url }}" target="_blank" class="text-link">{{ resource.action_title }}</a>
+            {%- for resource in site.data.question.other_project.next_steps.resources -%}
+            <div class="toolkit__resource flex__item">
+                <h3>{{ resource.title }}</h3>
+
+                <div class="layout-two-columns">
+                    {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
+                    class="layout-two-columns__left picture--square"%}
+                    <div class="layout-two-columns__right">
+                        <p>{{ resource.description }}</p>
+                        <a href="{{ resource.url }}" target="_blank" class="text-link">{{ resource.action_title }}</a>
+                    </div>
                 </div>
             </div>
+            {%- endfor -%}
         </div>
-        {%- endfor -%}
 
 
     </section>

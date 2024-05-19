@@ -22,11 +22,11 @@
             input
                 +
                     label
-                        @include text-link__outlined_negative
+                        @include text-link--outlined_negative
                         flex-shrink: 0
             input:checked
                 +
-                    label
+                    label 
                         @include text-link--outlined
 
     .questionpage__validation
@@ -45,16 +45,7 @@
         a
             @include text-link--disabled
 
-.question__domap__items
-    display: flex
-    flex-wrap: wrap
-    gap: 12pt
-    flex-flow: row
-    @media screen and (max-width: $breakpoint-medium)
-        flex-flow: column
-
 .question__domap__actions
     display: flex
     flex-direction: row
     justify-content: right
-    

@@ -87,6 +87,14 @@
     @include column-item
     min-width: 200pt
 
+.flex__wrap
+    display: flex
+    flex-wrap: wrap
+    gap: 12pt
+    flex-flow: row
+    @media screen and (max-width: $breakpoint-medium)
+        flex-flow: column
+
 /** Columns **/
 @mixin columns()
     display: grid
