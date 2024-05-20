@@ -18,6 +18,7 @@ layout: default
                 {{ site.data.about.body }}
             </div>
             <div class="caption">{{ site.data.about.footer }}</div>
+            {% picture {{ site.data.about.bottom_image.url }} --alt {{ site.data.about.bottom_image.description }} %}
         </div>
     </section>
 </div>

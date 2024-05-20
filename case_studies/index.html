@@ -2,10 +2,21 @@
 title: Case studies
 layout: default
 ---
+{%- include component-lazyiframe.html -%}
+
 <div class="page__top-content page__bottom-content width--wide ">
     <h1>{{ site.data.study_cases.title}}</h1>
     <abstract>{{ site.data.study_cases.abstract}}</abstract>
 
+    <section class="flex--space_evenly">
+        <lazy-iframe class="column__item--small map" style="display: block; overflow: hidden; "
+            title="Map of initiatives" allow="geolocation ; camera;" frameborder="0"
+            src="https://www.mapotic.com/pilot-cities/embed?zoom=3.719309383289333&lat=48.23462655956004&lng=10.771234864936204">
+            {% picture /assets/toolkit/mapotic_placeholder.jpg --alt {{ site.data.home.part3.image.description }}
+            --img style="object-fit: cover"
+            --parent slot="placeholder" %}
+        </lazy-iframe>
+    </section>
     <section class="flex--space_evenly">
         {%- for pilot_city in site.data.study_cases.pilot_cities -%}
         <div class="card column__item">
@@ -14,5 +25,6 @@ layout: default
             <p>{{ pilot_city.body }}</p>
         </div>
         {%- endfor -%}
+
     </section>
 </div>
