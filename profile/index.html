@@ -257,13 +257,14 @@ hide: true
          */
         renderProgressionItem(that, progression, progressionItem) {
             return html`<li>
-                <input 
+                <input
+                    id="${progressionItem.id}"
                     type="checkbox" 
                     ?checked=${progressionItem.checked}
                     @click="${() =>
                     this.toggleItem(progression, progressionItem)}"
                     ></input> 
-                ${progressionItem.label}
+                <label for="${progressionItem.id}">${progressionItem.label}</label>
             </li>`
         }
 
