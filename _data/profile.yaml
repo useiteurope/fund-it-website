@@ -1,0 +1,38 @@
+journey:
+  title: My funding <strong>journey</strong>
+  global_progress:
+    steps:
+      - You have so many wonderful things to learn about funding ! Enjoy
+      - You probably have a lot of inspiration for funding your map but still so much to discover !
+      - Well we start talking about funding knowledge and preparation here !
+      - You’re experienced enough to meet sponsors ! Be confident
+      - No fund will resist you
+    progressions:
+      - id: tools_knowledge
+        title: Tools knowledge
+        items:
+          - id: timeline
+            label: I travelled through the whole timeline !
+          - id: interviews
+            label: I understand officials thanks to their interview
+          - id: guidebook
+            label: Guidebook well read
+          - id: publish_videos
+            label: I will published Continuity videos
+          - id: eur_fund_opportunities
+            label: I know where are European funds opportunities
+          - id: tutos
+            label: Tutorials and keys against scepticism mastered
+          - id: city_knowledge
+            label: I know my city USE-IT past and success recipes in my country thanks to the research map/database
+      - id: project_preparation
+        title: My project preparation
+        items:
+          - id: budget
+            label: We calculated and designed my budget
+          - id: booklet
+            label: We printed my personalised booklet
+          - id: dummy_map
+            label: We have a dummy of our map (cover)
+          - id: timeline
+            label: We did the timeline of our project

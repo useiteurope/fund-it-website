@@ -1,0 +1,257 @@
+---
+title: Profile
+layout: default
+hide: true
+---
+
+<script type="module">
+    import { LitElement, html, css } from '/assets/global/libs/lit/lit-core.min.js'
+
+    export class ProgressValue {
+        /** @type {float} */
+        value
+
+        /**
+         * @param {float} progress
+         */
+        constructor(progress) {
+            this.value = progress
+        }
+
+        /**
+         * @param {int} totalStepsCount
+         *
+         * @return {int}
+         */
+        fulfilledSteps(totalStepsCount) {
+            return Math.round(totalStepsCount * this.value)
+        }
+    }
+
+    export class ProgressionItem {
+        /** @type {string} */
+        id
+
+        /** @type {boolean} */
+        checked
+
+        /** @type {string} */
+        label
+
+        /**
+         * @param {string} id
+         * @param {boolean} checked
+         * @param {string} label
+         */
+        constructor(id, checked, label) {
+            this.id = id
+            this.checked = checked
+            this.label = label
+        }
+
+        static fromJSON(obj) {
+            return new ProgressionItem(
+                obj.id,
+                false,
+                obj.label,
+            )
+        }
+        /**
+         * @param {boolean} checked
+         * @return {ProgressionItem}
+         */
+        copyWithChecked(checked) {
+            return new ProgressionItem(this.id, checked, this.label)
+        }
+    }
+
+    export class Progression {
+        /** @type {string} */
+        id
+
+        /** @type {Array<ProgressionItem>} */
+        items
+
+        /** @type {string} */
+        title
+
+        /**
+         * @return {ProgressValue}
+         */
+        get progress() {
+            const checkedItemsCount = this.items.filter((item) => item.checked === true).length
+
+            if (checkedItemsCount == 0) return new ProgressValue(0)
+
+            const totalItemsCount = this.items.length
+
+            return new ProgressValue(checkedItemsCount / totalItemsCount)
+        }
+
+        /**
+         * @param {string} id
+         * @param {string} title
+         * @param {Array<ProgressionItem>} items
+         */
+        constructor(id, title, items) {
+            this.id = id
+            this.items = items
+            this.title = title
+        }
+
+        static fromJSON(obj) {
+            return new Progression(
+                obj.id,
+                obj.title,
+                obj.items.map(ProgressionItem.fromJSON)
+            )
+        }
+
+        /**
+         * @param {ProgressionItem} itemToUpdate
+         *
+         * @return {Progression}
+         */
+        copyWithItem(itemToUpdate) {
+            return new Progression(
+                this.id,
+                this.title,
+                this.items.map((item) => {
+                    if (item.id !== itemToUpdate.id) return item
+                    return itemToUpdate
+                }),
+            )
+        }
+    }
+
+    export class GlobalProgress {
+        /** @type {Array<Progression>} */
+        progressions
+
+        /** @type {Array<string>} */
+        steps
+
+        /**
+         *  @param {Array<string>} steps
+         *  @param {Array<Progression>} progressions
+         */
+        constructor(steps, progressions) {
+            this.steps = steps
+            this.progressions = progressions
+        }
+
+        static fromJSON(obj) {
+            return new GlobalProgress(
+                obj.steps,
+                obj.progressions.map(Progression.fromJSON)
+            )
+        }
+
+        /**
+         * @param {Progression} progressionToUpdate
+         *
+         * @return {GlobalProgress}
+         */
+        copyWithProgression(progressionToUpdate) {
+            return new GlobalProgress(
+                this.steps,
+                this.progressions.map((progression) => {
+                    if (progression.id !== progressionToUpdate.id) return progression
+                    return progressionToUpdate
+                })
+            )
+        }
+
+        get progress() {
+            const allItems = this.progressions
+                .map((progression) => progression.items)
+                .flat()
+
+            const checkedItemsCount = allItems.filter((item) => item.checked).length
+
+            if (checkedItemsCount == 0) return new ProgressValue(0)
+            const allItemsCount = allItems.length
+            return new ProgressValue(checkedItemsCount / allItemsCount)
+        }
+
+        get fulfilledSteps() {
+            return this.progress.fulfilledSteps(this.steps.length)
+        }
+
+        get currentStepLabel() {
+            return this.steps[this.fulfilledSteps]
+        }
+    }
+    export class GlobalProgressView extends LitElement {
+        static properties = {
+            /** @type {GlobalProgress} */
+            globalProgress: { attribute: false }
+        }
+
+
+        // Define scoped styles right with your component, in plain CSS
+        static styles = css`
+        `;
+
+        constructor() {
+            super();
+
+            const progs = JSON.parse(this.getAttribute('progressions'))
+            // Declare reactive properties
+            this.globalProgress = GlobalProgress.fromJSON(progs);
+            // this.globalProgress = Object.assign(new GlobalProgress(), progs)
+        }
+
+        /**
+         * @param {Progression} progression
+         * @param {ProgressionItem} progressionItem
+         */
+        toggleItem(progression, progressionItem) {
+            this.globalProgress = this.globalProgress.copyWithProgression(progression.copyWithItem(progressionItem.copyWithChecked(!progressionItem.checked)))
+        }
+
+        /**
+         * @param {ProgressionItem} progressionItem
+         */
+        renderProgressionItem(that, progression, progressionItem) {
+            return html`<li>
+                <input 
+                    type="checkbox" 
+                    ${progressionItem.checked ? "checked" : ''}
+                    @click="${() =>
+                    this.toggleItem(progression, progressionItem)}"
+                    ></input> 
+                ${progressionItem.label}
+            </li>`
+        }
+
+        /**
+         * @param {Progression} progression
+         */
+        renderProgression(that, progression) {
+            return html`<section>
+                <h2>${progression.title} : ${Math.round(progression.progress.value * 100)}%</h2>
+
+                <ul>
+                    ${progression.items.map((item) => that.renderProgressionItem(that, progression, item))}
+                </ul>
+            </section>`
+        }
+
+        // Render the UI as a function of component state
+        render() {
+            return html`
+            <div>Global progress : ${this.globalProgress.fulfilledSteps}  / ${this.globalProgress.steps.length} </div>
+            <div>${this.globalProgress.currentStepLabel}</div>
+            ${this.globalProgress.progressions.map((progression) => this.renderProgression(this, progression))}
+            `;
+        }
+    }
+    customElements.define('global-progression', GlobalProgressView);
+</script>
+<div class="width--wide page__top-content page__bottom-content">
+    <h1>{{site.data.profile.journey.title}}</h1>
+
+    <global-progression progressions='{{site.data.profile.journey.global_progress | jsonify}}'>
+    </global-progression>
+</div>
