@@ -25,6 +25,15 @@
 .text-link
     @include text-link
 
+@mixin text-link--wide
+    @include text-link__base
+    background-color: $primary-color
+    color: $on-primary-color
+    padding-left: 42pt
+    padding-right: 42pt
+.text-link--wide
+    @include text-link--wide
+
 @mixin text-link--disabled
     @include text-link
     opacity: 0.6
