@@ -63,6 +63,28 @@ hide: true
         copyWithChecked(checked) {
             return new ProgressionItem(this.id, checked, this.label)
         }
+
+        get _localStorageKey() {
+            return `progressions_item_checked_${this.id}`
+        }
+
+        persist() {
+            localStorage.setItem(this._localStorageKey, this.checked)
+        }
+
+        /**
+         * Returns a copy of this with all values restored 
+         * from localStorage.
+         *
+         * @return {ProgressionItem}
+         */
+        restore() {
+            return new ProgressionItem(
+                this.id,
+                localStorage.getItem(this._localStorageKey) === "true",
+                this.label,
+            )
+        }
     }
 
     export class Progression {
@@ -122,6 +144,20 @@ hide: true
                 }),
             )
         }
+
+        /**
+         * Returns a copy of this with all values restored 
+         * from localStorage.
+         *
+         * @return {Progression}
+         */
+        restore() {
+            return new Progression(
+                this.id,
+                this.title,
+                this.items.map((item) => item.restore())
+            )
+        }
     }
 
     export class GlobalProgress {
@@ -162,6 +198,19 @@ hide: true
             )
         }
 
+        /**
+         * Returns a copy of the GlobalProgress with all values restored 
+         * from localStorage.
+         *
+         * @return {GlobalProgress}
+         */
+        restore() {
+            return new GlobalProgress(
+                this.steps,
+                this.progressions.map((progression) => progression.restore())
+            )
+        }
+
         get progress() {
             const allItems = this.progressions
                 .map((progression) => progression.items)
@@ -198,8 +247,7 @@ hide: true
 
             const progs = JSON.parse(this.getAttribute('progressions'))
             // Declare reactive properties
-            this.globalProgress = GlobalProgress.fromJSON(progs);
-            // this.globalProgress = Object.assign(new GlobalProgress(), progs)
+            this.globalProgress = GlobalProgress.fromJSON(progs).restore();
         }
 
         /**
@@ -207,7 +255,13 @@ hide: true
          * @param {ProgressionItem} progressionItem
          */
         toggleItem(progression, progressionItem) {
-            this.globalProgress = this.globalProgress.copyWithProgression(progression.copyWithItem(progressionItem.copyWithChecked(!progressionItem.checked)))
+            const updatedItem = progressionItem.copyWithChecked(!progressionItem.checked)
+            updatedItem.persist()
+            this.globalProgress = this.globalProgress.copyWithProgression(
+                progression.copyWithItem(
+                    updatedItem
+                )
+            )
         }
 
         /**
@@ -217,7 +271,7 @@ hide: true
             return html`<li>
                 <input 
                     type="checkbox" 
-                    ${progressionItem.checked ? "checked" : ''}
+                    ?checked=${progressionItem.checked}
                     @click="${() =>
                     this.toggleItem(progression, progressionItem)}"
                     ></input> 
