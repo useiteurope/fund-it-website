@@ -7,27 +7,6 @@ hide: true
 <script type="module">
     import { LitElement, html, css } from '/assets/global/libs/lit/lit-core.min.js'
 
-    export class ProgressValue {
-        /** @type {float} */
-        value
-
-        /**
-         * @param {float} progress
-         */
-        constructor(progress) {
-            this.value = progress
-        }
-
-        /**
-         * @param {int} totalStepsCount
-         *
-         * @return {int}
-         */
-        fulfilledSteps(totalStepsCount) {
-            return Math.round(totalStepsCount * this.value)
-        }
-    }
-
     export class ProgressionItem {
         /** @type {string} */
         id
@@ -98,16 +77,16 @@ hide: true
         title
 
         /**
-         * @return {ProgressValue}
+         * @return {float}
          */
         get progress() {
             const checkedItemsCount = this.items.filter((item) => item.checked === true).length
 
-            if (checkedItemsCount == 0) return new ProgressValue(0)
+            if (checkedItemsCount == 0) return 0
 
             const totalItemsCount = this.items.length
 
-            return new ProgressValue(checkedItemsCount / totalItemsCount)
+            return checkedItemsCount / totalItemsCount
         }
 
         /**
@@ -211,6 +190,9 @@ hide: true
             )
         }
 
+        /**
+         * @return {float}
+         */
         get progress() {
             const allItems = this.progressions
                 .map((progression) => progression.items)
@@ -218,15 +200,21 @@ hide: true
 
             const checkedItemsCount = allItems.filter((item) => item.checked).length
 
-            if (checkedItemsCount == 0) return new ProgressValue(0)
+            if (checkedItemsCount == 0) return 0
             const allItemsCount = allItems.length
-            return new ProgressValue(checkedItemsCount / allItemsCount)
+            return checkedItemsCount / allItemsCount
         }
 
+        /**
+         * @return {int}
+         */
         get fulfilledSteps() {
-            return this.progress.fulfilledSteps(this.steps.length)
+            return Math.floor((this.steps.length - 1) * this.progress)
         }
 
+        /**
+         * @return {string}
+         */
         get currentStepLabel() {
             return this.steps[this.fulfilledSteps]
         }
@@ -284,7 +272,7 @@ hide: true
          */
         renderProgression(that, progression) {
             return html`<section>
-                <h2>${progression.title} : ${Math.round(progression.progress.value * 100)}%</h2>
+                <h2>${progression.title} : ${Math.round(progression.progress * 100)}%</h2>
 
                 <ul>
                     ${progression.items.map((item) => that.renderProgressionItem(that, progression, item))}
@@ -295,7 +283,7 @@ hide: true
         // Render the UI as a function of component state
         render() {
             return html`
-            <div>Global progress : ${this.globalProgress.fulfilledSteps}  / ${this.globalProgress.steps.length} </div>
+            <div>Global progress : ${this.globalProgress.fulfilledSteps}  / ${this.globalProgress.steps.length - 1} </div>
             <div>${this.globalProgress.currentStepLabel}</div>
             ${this.globalProgress.progressions.map((progression) => this.renderProgression(this, progression))}
             `;
