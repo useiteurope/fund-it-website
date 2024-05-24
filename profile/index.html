@@ -28,9 +28,9 @@ hide: true
             this.label = label
         }
 
-        static fromJSON(obj) {
+        static fromJSON(parentId, obj) {
             return new ProgressionItem(
-                obj.id,
+                `${parentId}__${obj.id}`,
                 false,
                 obj.label,
             )
@@ -104,7 +104,7 @@ hide: true
             return new Progression(
                 obj.id,
                 obj.title,
-                obj.items.map(ProgressionItem.fromJSON)
+                obj.items.map((item) => ProgressionItem.fromJSON(obj.id, item))
             )
         }
 
