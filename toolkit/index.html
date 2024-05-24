@@ -10,9 +10,9 @@ layout: default
     <section>
         <h2>Ressources for matching with funding opportunities</h2>
 
-        <div class="toolkit__resources flex--space-between">
+        <div class="resources flex--space-between">
             {%- for resource in site.data.toolkit.ressources -%}
-            <div class="toolkit__resource flex__item">
+            <div class="resource flex__item">
                 <h3>{{ resource.title }}</h3>
                 <div class="layout-two-columns">
                     {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent

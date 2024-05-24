@@ -4,30 +4,35 @@ abstract: |
   <br/>They had access to the beta version of the toolkit and they gave they give feedback for improving our tools.
   <br/>Have an insight of their journey !
 
+
 pilot_cities:
-  - title: Rotterdam
-    body: We collected 10 years of USE-IT initiative project in a database to enable every project leader to find sponsor data, key data and so much more ! 
-    image:
-      url: /assets/study_cases/how_become_expert/hard_skills.jpg
-      description: Rotterdam illustration
-  - title: Rotterdam
-    body: We collected 10 years of USE-IT initiative project in a database to enable every project leader to find sponsor data, key data and so much more ! 
-    image:
-      url: /assets/study_cases/how_become_expert/hard_skills.jpg
-      description: Rotterdam illustration
-  - title: Rotterdam
-    body: We collected 10 years of USE-IT initiative project in a database to enable every project leader to find sponsor data, key data and so much more ! 
-    image:
-      url: /assets/study_cases/how_become_expert/hard_skills.jpg
-      description: Rotterdam illustration
-  - title: Rotterdam
-    body: We collected 10 years of USE-IT initiative project in a database to enable every project leader to find sponsor data, key data and so much more ! 
-    image:
-      url: /assets/study_cases/how_become_expert/hard_skills.jpg
-      description: Rotterdam illustration
-  - title: Rotterdam
-    body: We collected 10 years of USE-IT initiative project in a database to enable every project leader to find sponsor data, key data and so much more ! 
-    image:
-      url: /assets/study_cases/how_become_expert/hard_skills.jpg
-      description: Rotterdam illustration
-      
+  title: Stories of Success from the USE-IT network
+  resources:
+    - title: Poland
+      description: 
+      url: /assets/study_cases/Poland.pdf
+      action_title: Download now !
+      image:
+        url: /assets/study_cases/Poland_thumbnail.png
+        description: Poland study case
+    - title: Netherlands
+      description: 
+      url: /assets/study_cases/Netherlands.pdf
+      action_title: Download now !
+      image:
+        url: /assets/study_cases/Netherlands_thumbnail.png
+        description: Netherlands study case
+    - title: Czech Republic
+      description: 
+      url: /assets/study_cases/Czech_Republic.pdf
+      action_title: Download now !
+      image:
+        url: /assets/study_cases/Czech_Republic_thumbnail.png
+        description: Czech Republic study case
+    - title: On their way to funding
+      description: 
+      url: /assets/study_cases/On_Their_Way_to_Funding.pdf
+      action_title: Download now !
+      image:
+        url: /assets/study_cases/On_Their_Way_to_Funding_thumbnail.png
+        description: On their way to funding study case

@@ -16,7 +16,7 @@ hide: true
     <section>
         <h2>New sponsors</h2>
 
-        <div class="flex__wrap">
+        <div class="flex--wrap--large">
             <lazy-iframe class="column__item--small" style="display: block; overflow: hidden; "
                 title="Map of initiatives" allow="geolocation ; camera;" frameborder="0"
                 src="https://www.mapotic.com/fund-it-project/embed">
@@ -37,7 +37,7 @@ hide: true
         <h2>NEXT STEPS OF YOUR PROJECT </h2>
 
 
-        <div class="flex__wrap">
+        <div class="flex--wrap--large">
             <lazy-iframe class="column__item--small" src="https://prezi.com/p/embed/ccgc-jb5-hsx/"
                 title="Timeline funding and mapping a Use-It map"
                 style="display: block;  border-radius: 6pt; overflow: hidden;">
@@ -47,7 +47,7 @@ hide: true
             </lazy-iframe>
 
             {%- for resource in site.data.question.other_project.next_steps.resources -%}
-            <div class="toolkit__resource flex__item">
+            <div class="resource flex__item">
                 <h3>{{ resource.title }}</h3>
 
                 <div class="layout-two-columns">

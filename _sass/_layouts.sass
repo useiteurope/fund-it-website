@@ -31,6 +31,11 @@
     padding-top: 45pt
     padding-bottom: 45pt
 
+.layout-one-column
+    display: flex
+    flex-flow: column
+    gap: 12pt
+
 /** Layout two columns **/
 .layout-two-columns
     display: flex
@@ -60,6 +65,19 @@
     row-gap: 25pt
     column-gap: 25pt
 
+.flex--wrap--large
+    display: flex
+    flex-wrap: wrap
+    gap: 12pt
+    flex-flow: row
+    @media screen and (max-width: $breakpoint-medium)
+        flex-flow: column
+
+.flex--wrap
+    display: flex
+    flex-wrap: wrap
+    gap: 12pt
+
 .flex--space-between
     @include flex
     justify-content: space-between
@@ -85,13 +103,10 @@
     @include column-item
     min-width: 200pt
 
-.flex__wrap
-    display: flex
-    flex-wrap: wrap
-    gap: 12pt
-    flex-flow: row
-    @media screen and (max-width: $breakpoint-medium)
-        flex-flow: column
+.flex__item--tiny
+    @include column-item
+    max-width: 200pt
+    min-width: 160pt
 
 /** Columns **/
 @mixin columns()

@@ -17,14 +17,22 @@ layout: default
             --parent slot="placeholder" %}
         </lazy-iframe>
     </section>
-    <section class="flex--space_evenly">
-        {%- for pilot_city in site.data.study_cases.pilot_cities -%}
-        <div class="card column__item">
-            {%- picture {{ pilot_city.image.url }} --alt '{{ pilot_city.image.description }}' -%}
-            <h3>{{ pilot_city.title }}</h3>
-            <p>{{ pilot_city.body }}</p>
-        </div>
-        {%- endfor -%}
 
+    <section>
+        <h2>{{ site.data.study_cases.pilot_cities.title }}</h2>
+
+        <div class="resources flex--space-between">
+            {%- for resource in site.data.study_cases.pilot_cities.resources -%}
+            <div class="resource flex__item--tiny">
+                <h3>{{ resource.title }}</h3>
+                <div class="layout-one-column">
+                    {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
+                    class="layout-two-columns__left picture--square"%}
+                    <a href="{{ resource.url }}" target="_blank" class="text-link">{{ resource.action_title }}</a>
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
     </section>
+
 </div>

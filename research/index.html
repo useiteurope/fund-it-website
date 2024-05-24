@@ -22,9 +22,9 @@ layout: default
         <h2>{{site.data.research.ressources.title}}</h2>
 
         <h3>{{site.data.research.ressources.subtitle}}</h3>
-        <div class="toolkit__resources flex--space-between">
+        <div class="resources flex--space-between">
             {%- for resource in site.data.research.ressources.items -%}
-            <div class="toolkit__resource flex__item">
+            <div class="resource flex__item">
                 <h3>{{ resource.title }}</h3>
                 <div class="layout-two-columns">
                     {% picture {{ resource.image.url }} --alt {{ resource.image.description }} --parent
