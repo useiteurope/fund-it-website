@@ -81,6 +81,8 @@
 .flex--space-between
     @include flex
     justify-content: space-between
+    @media screen and (max-width: $breakpoint-small)
+        justify-content: center
 
 .flex--space_evenly
     @include flex
