@@ -31,85 +31,118 @@ header
         opacity: 1
 
 @media screen and (max-width: $breakpoint-small)
-    label[for="nav-trigger"]
-        padding: 16pt
-        position: relative
-        right: -16pt
-            // align-content: center
-
-    .site-nav
+    .menu-button-container
         position: absolute
-        top: 55pt
+        top: 20pt
+        right: 20pt
+        display: flex
+        height: 30px
+        width: 30px
+        cursor: pointer
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+    .menu
+        position: absolute
+        z-index: 2
+        background-color: $card-color
+        border-top: 5pt solid $text-color
+        font: 400 $font-size-regular $font-inter
+        padding: 12pt 0
+        box-shadow: 0pt 8pt 12pt
+        top: 0
+        margin-top: 85px
         left: 0
         right: 0
 
-        .trigger
-            background-color: $card-color
-            border-top: 5pt solid $text-color
-            font: 400 $font-size-regular $font-inter
-            padding: 12pt 0
-            box-shadow: 0pt 8pt 12pt
+    #menu-toggle:checked
+        ~
+            .menu
+                display: flex
+                flex-flow: column
+                justify-content: right
+                gap: 0
+                animation: slide-in 0.3s both
 
-        input:checked
-            ~
-                .trigger
-                    display: flex
-                    flex-flow: column
-                    justify-content: right
-                    gap: 0
-                    animation: slide-in 0.3s both
-        input
-            ~
-                .trigger
-                    display: none
-                    animation: slide-out 0.3s both
+    #menu-toggle
+        ~
+            .menu
+                display: none
+                animation: slide-out 0.3s both
 
 @media screen and (min-width: $breakpoint-small)
-    label[for="nav-trigger"]
+    .menu-button-container
         display: none
-    .site-nav
+    .menu
+        background-color: transparent
+        font: 400 $font-size-small $font-inter
 
-        .trigger
-            background-color: transparent
-            font: 400 $font-size-small $font-inter
-
-.nav-trigger
+#menu-toggle
     display: none
 
-.site-nav
-    z-index: 2
-    .trigger
-        display: flex
-        flex-flow: row
-        gap: 8pt
-        list-style: none
+.menu
+    display: flex
+    flex-flow: row
+    gap: 8pt
+    list-style: none
 
+    .page-link
+        color: black
+
+    .page-link.current
+        font-weight: 700
+
+    @media screen and (max-width: $breakpoint-small)
         .page-link
+            width: 100%
+            padding: 8pt 12pt
+
+    @media screen and (max-width: $breakpoint-small)
+        .page-link--outlined
+            width: 100%
             color: black
 
-        .page-link.current
-            font-weight: 700
+    @media screen and (min-width: $breakpoint-small)
+        .page-link--outlined
+            color: white
+            background-color: $text-color
+            text-decoration: none
+            display: block
+            border: 0
+            border-radius: 20pt
+            text-align: center
+            padding: 6pt 12pt
+            opacity: 1
+            margin-top: 2pt
+            margin-bottom: 2pt
 
-        @media screen and (max-width: $breakpoint-small)
-            .page-link
-                width: 100%
-                padding: 8pt 12pt
+.menu-button,
+.menu-button::before,
+.menu-button::after
+    display: block
+    background-color: $text-color
+    position: absolute
+    height: 4px
+    width: 30px
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1)
+    border-radius: 2px
 
-        @media screen and (max-width: $breakpoint-small)
-            .page-link--outlined
-                width: 100%
-                color: black
+.menu-button::before
+    content: ''
+    margin-top: -8px
 
-        @media screen and (min-width: $breakpoint-small)
-            .page-link--outlined
-                color: white
-                background-color: $text-color
-                text-decoration: none
-                display: block
-                border: 0
-                border-radius: 20pt
-                text-align: center
-                padding: 6pt 12pt
-                opacity: 1
-                margin-top: 2pt
-                margin-bottom: 2pt
+.menu-button::after
+    content: ''
+    margin-top: 8px
+
+#menu-toggle:checked + .menu-button-container .menu-button::before
+    margin-top: 0px
+    transform: rotate(405deg)
+
+#menu-toggle:checked + .menu-button-container .menu-button
+    background: rgba(255, 255, 255, 0)
+
+#menu-toggle:checked + .menu-button-container .menu-button::after
+    margin-top: 0px
+    transform: rotate(-405deg)
