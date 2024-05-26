@@ -1,4 +1,5 @@
 @import "breakpoints"
+
 header
     display: flex
     flex-flow: row
@@ -11,23 +12,43 @@ header
             height: 45pt
             width: auto
 
+@keyframes slide-in
+    0%
+        transform: translateY(-10px)
+        opacity: 0
+
+    100%
+        transform: translateY(0)
+        opacity: 1
+
+@keyframes slide-out
+    0%
+        transform: translateY(0px)
+        opacity: 0
+
+    100%
+        transform: translateY(-10px)
+        opacity: 1
+
 @media screen and (max-width: $breakpoint-small)
+    label[for="nav-trigger"]
+        padding: 16pt
+        position: relative
+        right: -16pt
+            // align-content: center
+
     .site-nav
         position: absolute
-        top: 26pt
-        right: 15px
-        text-align: right
+        top: 55pt
+        left: 0
+        right: 0
 
         .trigger
             background-color: $card-color
-            border: 1pt solid $card-border-color
-            border-radius: 8pt
+            border-top: 5pt solid $text-color
             font: 400 $font-size-regular $font-inter
-
-        label[for="nav-trigger"]
-            padding: 16pt
-            position: relative
-            right: -16pt
+            padding: 12pt 0
+            box-shadow: 0pt 8pt 12pt
 
         input:checked
             ~
@@ -36,19 +57,24 @@ header
                     flex-flow: column
                     justify-content: right
                     gap: 0
+                    animation: slide-in 0.3s both
         input
             ~
                 .trigger
                     display: none
+                    animation: slide-out 0.3s both
 
 @media screen and (min-width: $breakpoint-small)
+    label[for="nav-trigger"]
+        display: none
     .site-nav
-        label[for="nav-trigger"]
-            display: none
 
         .trigger
             background-color: transparent
             font: 400 $font-size-small $font-inter
+
+.nav-trigger
+    display: none
 
 .site-nav
     z-index: 2
@@ -64,18 +90,26 @@ header
         .page-link.current
             font-weight: 700
 
-        .page-link--outlined
-            color: white
-            background-color: $text-color
-            text-decoration: none
-            display: block
-            border: 0
-            border-radius: 20pt
-            text-align: center
-            padding: 6pt 12pt
-            opacity: 1
-            margin-top: 2pt
-            margin-bottom: 2pt
+        @media screen and (max-width: $breakpoint-small)
+            .page-link
+                width: 100%
+                padding: 8pt 12pt
 
-    .nav-trigger
-        display: none
+        @media screen and (max-width: $breakpoint-small)
+            .page-link--outlined
+                width: 100%
+                color: black
+
+        @media screen and (min-width: $breakpoint-small)
+            .page-link--outlined
+                color: white
+                background-color: $text-color
+                text-decoration: none
+                display: block
+                border: 0
+                border-radius: 20pt
+                text-align: center
+                padding: 6pt 12pt
+                opacity: 1
+                margin-top: 2pt
+                margin-bottom: 2pt
