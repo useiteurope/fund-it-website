@@ -50,14 +50,13 @@
             width: 80%;
             height: auto;
             max-width: 600pt;
-            aspect-ratio: 5/3;
             border: none;
-
+            animation: show 0.6s ease;
         }
 
         dialog::backdrop {
             background-color: #000000aa;
-
+            animation: show 0.6s ease;
         }
 
         dialog iframe {
@@ -97,6 +96,16 @@
             white-space: nowrap;
             max-width: 80%;
             border-radius: 30pt 0 0 0;
+        }
+
+        @keyframes show {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
     </style>
     <div class="youtube">
@@ -153,7 +162,7 @@
                 this._internals = this.attachInternals();
             }
 
-            /** @return VideoMeta **/
+            /** @return {VideoMeta} **/
             async getDetails(embedId) {
                 const jsonResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=${embedId}&key=${this.apiKey}`);
                 const response = await jsonResponse.json()
@@ -204,6 +213,14 @@
                 iframeElem.contentDocument.title = videoDetails.description
             }
 
+            /**
+             * @param {Element} videoElem
+             * @param {VideoMeta} videoDetails
+             **/
+            updateRatio(dialog, videoDetails) {
+                dialog.style.setProperty('aspect-ratio', `${videoDetails.defaultThumbnail.width} / ${videoDetails.defaultThumbnail.height}`)
+            }
+
             hidePlayerDialog(dialog, youtubeIframe) {
                 youtubeIframe.setAttribute("src", "");
                 youtubeIframe.innerHTML = '<iframe frameborder="0" allowfullscreen="" loading="lazy" allow="accelerometer; autoplay;encrypted-media; gyroscope;picture-in-picture"></iframe>';
@@ -236,9 +253,11 @@
                 const embedId = this.getAttribute("embed");
                 this.apiKey = this.getAttribute("apiKey");
                 const videoElem = this._internals.shadowRoot.querySelector(".youtube");
+                const dialog = this._internals.shadowRoot.querySelector("dialog");
 
 
                 this.getDetails(embedId).then((videoDetails) => {
+                    this.updateRatio(dialog, videoDetails)
                     this.updateThumbnail(videoElem, videoDetails)
                     this.updateTitle(videoDetails)
                 })
