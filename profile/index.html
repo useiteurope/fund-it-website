@@ -439,6 +439,11 @@ hide: true
             align-items: center;
             width: 300pt;
         }
+
+        progress-bar {
+            display: block;
+            max-width: 500pt;
+        }
         `;
 
         constructor() {
@@ -506,7 +511,7 @@ hide: true
     customElements.define('global-progression', GlobalProgressView);
 </script>
 <div class="width--wide page__top-content page__bottom-content">
-    <h1>{{site.data.profile.journey.title}}</h1>
+    <h1 class="margin-bottom--none">{{site.data.profile.journey.title}}</h1>
 
     <global-progression progressions='{{site.data.profile.journey.global_progress | jsonify}}'>
     </global-progression>
