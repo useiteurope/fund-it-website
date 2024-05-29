@@ -1,0 +1,66 @@
+<script type="module">
+    import { LitElement, html, css } from '/assets/global/libs/lit/lit-core.min.js'
+
+    export class ProgressBarView extends LitElement {
+        static properties = {
+            value: { attribute: true }
+        }
+
+        static styles = css`
+        .progress-bar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            white-space: nowrap;
+            transition: 
+                width 0.6s ease,
+                background-color 0.6s ease;
+        }
+        .progress, .progress-stacked {
+            display: flex; 
+            height: 6pt;
+            overflow: hidden;
+            background-color: white;
+            border-radius: 6pt;
+        }
+        `;
+
+        get percentValue() { return Math.round(this.value * 100) }
+
+        render() {
+            return html`
+        <div class="progress" role="progressbar">
+            <div class="progress-bar" style="width: ${this.percentValue}%"></div>
+        </div>
+        `;
+        }
+
+        firstUpdated() {
+        }
+
+        interpolateColorComponent(start, end, progress) {
+            return Math.round(start + progress * (end - start))
+        }
+
+        interpolateColors(start, end, progress) {
+            return [
+                this.interpolateColorComponent(start[0], end[0], progress),
+                this.interpolateColorComponent(start[1], end[1], progress),
+                this.interpolateColorComponent(start[2], end[2], progress),
+            ]
+        }
+
+        updated() {
+            const color1 = [249, 124, 27]
+            const color2 = [154, 212, 201]
+            const progressbar = this.renderRoot.querySelector('.progress-bar')
+
+            const interpolatedColor = this.interpolateColors(color1, color2, this.value)
+            progressbar.style.backgroundColor = `rgb(${interpolatedColor[0]},${interpolatedColor[1]},${interpolatedColor[2]})`
+
+        }
+    }
+    customElements.define('progress-bar', ProgressBarView);
+</script>
