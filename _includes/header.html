@@ -19,6 +19,7 @@
         {%- endif -%}
         {%- endif -%}
         {%- endfor -%}
-        <li><a class="page-link--outlined" href="/profile">My profile</a></li>
+        <li><a class="page-link--outlined {% if page.url == '/profile/' %}current{% endif %}" href="/profile">My
+                profile</a></li>
     </ul>
 </header>
