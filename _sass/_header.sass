@@ -100,9 +100,12 @@ header
             padding: 8pt 12pt
 
     @media screen and (max-width: $breakpoint-small)
+        .page-link--outlined.current,
         .page-link--outlined
             width: 100%
             color: black
+            text-decoration: none
+            display: block
 
     @media screen and (min-width: $breakpoint-small)
         .page-link--outlined:hover
