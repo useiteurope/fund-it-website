@@ -209,14 +209,14 @@ hide: true
          * @return {int}
          */
         get fulfilledSteps() {
-            return Math.floor((this.steps.length - 1) * this.progress)
+            return Math.floor((this.steps.length - 1) * this.progress) + 1
         }
 
         /**
          * @return {string}
          */
         get currentStepLabel() {
-            return this.steps[this.fulfilledSteps]
+            return this.steps[this.fulfilledSteps - 1]
         }
     }
     export class ProgressCircleView extends LitElement {
@@ -506,7 +506,7 @@ hide: true
             return html`
             <link rel="stylesheet" href="/assets/global/css/style.css">
             <section class="global-progress margin-top--none"> 
-                <progress-circle value="${this.globalProgress.progress}" text="${this.globalProgress.fulfilledSteps} / ${this.globalProgress.steps.length - 1}"></progress-circle>
+                <progress-circle value="${this.globalProgress.progress}" text="${this.globalProgress.fulfilledSteps} / ${this.globalProgress.steps.length}"></progress-circle>
                 <p>${this.globalProgress.currentStepLabel}</p>
             </section>
             ${this.globalProgress.progressions.map((progression) => this.renderProgression(this, progression))}
