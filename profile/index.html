@@ -497,12 +497,15 @@ hide: true
             </section>`
         }
 
+
+
         // Render the UI as a function of component state
         render() {
             return html`
-            <section class="global-progress"> 
+            <link rel="stylesheet" href="/assets/global/css/style.css">
+            <section class="global-progress margin-top--none"> 
                 <progress-circle value="${this.globalProgress.progress}" text="${this.globalProgress.fulfilledSteps} / ${this.globalProgress.steps.length - 1}"></progress-circle>
-                <div>${this.globalProgress.currentStepLabel}</div>
+                <p>${this.globalProgress.currentStepLabel}</p>
             </section>
             ${this.globalProgress.progressions.map((progression) => this.renderProgression(this, progression))}
             `;
