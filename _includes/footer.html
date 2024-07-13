@@ -1,5 +1,5 @@
 <footer>
-    {%- if page.url != "/toolkit/" -%}
+    {%- if page.url != "{{site.baseurl}}/toolkit/" -%}
     <div id="footer__call-to-action">
         <svg width="0" height="0">
             <defs>
@@ -14,7 +14,7 @@
         <div class="width--wide">
             <h4>{{ site.data.footer.title }}</h4>
             <p>{{ site.data.footer.body }}</p>
-            <a class="text-link--negative" href="/toolkit">Enjoy the kit !</a>
+            <a class="text-link--negative" href="{{site.baseurl}}/toolkit">Enjoy the kit !</a>
         </div>
     </div>
     {%- endif -%}
@@ -38,7 +38,7 @@
                     {%- if site_page.url != "/" -%}
                     {%- if site_page.title -%}
                     <li><a class="navigation-link page-link {% if page.path == site_page.path %}current{% endif %}"
-                            href="{% if page.path == site_page.path %}#{% else %}{{ site_page.url | relative_url }}{% endif %}">{{
+                            href="{% if page.path == site_page.path %}#{% else %}{{site.baseurl}}{{ site_page.url }}{% endif %}">{{
                             site_page.title | escape }}</a></li>
                     {%- endif -%}
                     {%- endif -%}
@@ -52,7 +52,8 @@
                     {% for social_network in site.data.social_networks %}
                     <li>
                         <a href="{{social_network.url}}" target="_blank">
-                            <img src="{{social_network.image.url}}" alt="{{ social_network.image.description }}" />
+                            <img src="{{site.baseurl}}{{social_network.image.url}}"
+                                alt="{{ social_network.image.description }}" />
                         </a>
                     </li>
                     {% endfor %}

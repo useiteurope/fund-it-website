@@ -32,10 +32,10 @@ hide: true
     }
     document.querySelector("#do_map").addEventListener('change', function () {
         if (!this.checked) return
-        _updateProjectLink('/question/do_map.html')
+        _updateProjectLink('{{site.baseurl}}/question/do_map.html')
     });
     document.querySelector("#other_project").addEventListener('change', function () {
         if (!this.checked) return
-        _updateProjectLink('/question/other_project.html')
+        _updateProjectLink('{{site.baseurl}}/question/other_project.html')
     });
 </script>

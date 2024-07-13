@@ -55,7 +55,8 @@ hide: true
                     class="layout-two-columns__left picture--square"%}
                     <div class="layout-two-columns__right">
                         <p>{{ resource.description }}</p>
-                        <a href="{{ resource.url }}" target="_blank" class="text-link">{{ resource.action_title }}</a>
+                        <a href="{{site.baseurl}}{{ resource.url }}" target="_blank" class="text-link">{{
+                            resource.action_title }}</a>
                     </div>
                 </div>
             </div>
@@ -66,6 +67,6 @@ hide: true
     </section>
 
     <div class="question__domap__actions">
-        <a class="text-link--wide" href="/toolkit">I'll browse alone</a>
+        <a class="text-link--wide" href="{{site.baseurl}}/toolkit">I'll browse alone</a>
     </div>
 </div>

@@ -6,7 +6,7 @@ hide: true
 {%- include component-progress-circle.html -%}
 {%- include component-progress-bar.html -%}
 <script type="module">
-    import { LitElement, html, css } from '/assets/global/libs/lit/lit-core.min.js'
+    import { LitElement, html, css } from '{{site.baseurl}}/assets/global/libs/lit/lit-core.min.js'
 
     export class ProgressionItem {
         /** @type {string} */
@@ -306,7 +306,7 @@ hide: true
         // Render the UI as a function of component state
         render() {
             return html`
-            <link rel="stylesheet" href="/assets/global/css/style.css">
+            <link rel="stylesheet" href="{{site.baseurl}}/assets/global/css/style.css">
             <section class="global-progress margin-top--none"> 
                 <progress-circle value="${this.globalProgress.progress}" text="${this.globalProgress.fulfilledSteps} / ${this.globalProgress.steps.length}"></progress-circle>
                 <p>${this.globalProgress.currentStepLabel}</p>

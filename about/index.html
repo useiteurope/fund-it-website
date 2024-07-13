@@ -23,12 +23,12 @@ layout: default
 </div>
 
 <script type="module">
-    import PhotoSwipeLightbox from '/assets/global/libs/photoswipe/photoswipe-lightbox.esm.min.js';
+    import PhotoSwipeLightbox from '{{site.baseurl}}/assets/global/libs/photoswipe/photoswipe-lightbox.esm.min.js';
     const lightbox = new PhotoSwipeLightbox({
         gallery: '.gallery',
         children: 'a',
-        pswpModule: () => import('/assets/global/libs/photoswipe/photoswipe.esm.min.js')
+        pswpModule: () => import('{{site.baseurl}}/assets/global/libs/photoswipe/photoswipe.esm.min.js')
     });
     lightbox.init();
 </script>
-<link rel="stylesheet" href="/assets/global/libs/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="{{site.baseurl}}/assets/global/libs/photoswipe/photoswipe.css">

@@ -1,6 +1,6 @@
 <header class="width--wide">
     <div class="logo">
-        <a href="/">{%- picture /assets/global/img/logo_fundit.png --alt 'Logo FundIt' -%}</a>
+        <a href="{{site.baseurl}}/">{%- picture /assets/global/img/logo_fundit.png --alt 'Logo FundIt' -%}</a>
     </div>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -13,14 +13,14 @@
         {%- if site_page.url != "/" -%}
         {%- if site_page.title -%}
         <li><a class="navigation-link page-link {% if page.path == site_page.path %}current{% endif %}"
-                href="{% if page.path == site_page.path %}#{% else %}{{ site_page.url | relative_url }}{% endif %}">{{
+                href="{% if page.path == site_page.path %}#{% else %}{{site.baseurl}}{{ site_page.url }}{% endif %}">{{
                 site_page.title | escape }}</a></li>
         {%- endif -%}
         {%- endif -%}
         {%- endif -%}
         {%- endfor -%}
         <li><a class="page-link page-link--outlined {% if page.url == '/profile/' %}current{% endif %}"
-                href="/profile">My
+                href="{{site.baseurl}}/profile">My
                 profile</a></li>
     </ul>
 </header>

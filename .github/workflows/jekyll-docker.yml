@@ -34,7 +34,7 @@ jobs:
       run: |
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jvconseil/jekyll-docker:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+        jvconseil/jekyll-docker:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --baseurl /fund-it-website --future"
     - name: Upload artifact
       # Automatically uploads an artifact from the './_site' directory by default
       uses: actions/upload-pages-artifact@v3
